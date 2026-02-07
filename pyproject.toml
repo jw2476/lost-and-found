@@ -1,0 +1,29 @@
+[project]
+name = "lost-and-found"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jack Whitehorn", email = "jackwh.whitehorn@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+lost-and-found = "lost_and_found:main"
+
+[build-system]
+requires = ["uv_build>=0.10.0,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.15.0",
+    "ty>=0.0.15",
+]
+
+[tool.uv.workspace]
+members = [
+    "lost-and-found",
+]
