@@ -54,7 +54,9 @@ class AddFoundItemViewModel(DialogViewModel):
             return False
 
         if not re.fullmatch(r"[^@]+@[^@]+\.[^@]+", email):
-            msg.showerror("Input Error", "Your email must be a valid email address.")
+            msg.showerror(
+                "Input Error", "Your email must be a valid email address."
+            )
             return False
 
         return True

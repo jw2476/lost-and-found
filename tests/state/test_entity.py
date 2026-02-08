@@ -22,7 +22,9 @@ class CallableMock[T]:
 
 
 def lost_item(name: str) -> Item:
-    return Item.create_lost_item(name, Category.BOOKS, datetime.now(), "owner@test.com")
+    return Item.create_lost_item(
+        name, Category.BOOKS, datetime.now(), "owner@test.com"
+    )
 
 
 def test_list_entity_new():
@@ -51,7 +53,9 @@ def test_list_entity_remove_all():
 def test_list_entity_update_child():
     list_entity = ListEntity[SearchParams].new()
     list_entity = list_entity.append(SearchParams.new())
-    list_entity = list_entity.update_child(list_entity.items[0].update_name("Boot"))
+    list_entity = list_entity.update_child(
+        list_entity.items[0].update_name("Boot")
+    )
 
     assert [item.name for item in list_entity.items] == ["Boot"]
 
@@ -65,7 +69,9 @@ def test_hierarchy_update():
 
     assert [item.finder_email for item in hierarchy.root.items.items] == [None]
 
-    hierarchy.update(item.mark_as_found(datetime.now(), "Library", "finder@test.com"))
+    hierarchy.update(
+        item.mark_as_found(datetime.now(), "Library", "finder@test.com")
+    )
     assert [item.finder_email for item in hierarchy.root.items.items] == [
         "finder@test.com"
     ]

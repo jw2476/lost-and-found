@@ -8,7 +8,9 @@ from abc import ABC
 
 
 class Model[T: Entity](ABC):
-    def __init__(self, hierarchy: Hierarchy, entity: ValueObservable[T]) -> None:
+    def __init__(
+        self, hierarchy: Hierarchy, entity: ValueObservable[T]
+    ) -> None:
         self.hierarchy = hierarchy
         self.entity = entity
 
@@ -19,12 +21,16 @@ class Model[T: Entity](ABC):
 
         self.entity.map(getter).on_change_only().subscribe(property.update)
         property.on_change_only().subscribe(
-            lambda value: self.hierarchy.update(setter(self.entity.value, value))
+            lambda value: self.hierarchy.update(
+                setter(self.entity.value, value)
+            )
         )
 
         return property
 
-    def observe[TValue](self, getter: Callable[[T], TValue]) -> ValueObservable[TValue]:
+    def observe[TValue](
+        self, getter: Callable[[T], TValue]
+    ) -> ValueObservable[TValue]:
         return self.entity.map(getter).on_change_only()
 
     def update(self, update: Callable[[T], T]) -> None:
@@ -52,7 +58,9 @@ class ItemsModel(Model[ListEntity[Item]]):
     def items(self) -> ValueObservable[ImmutableList[Item]]:
         return self.observe(lambda items: items.items)
 
-    def search(self, params: SearchParamsModel) -> ValueObservable[ImmutableList[Item]]:
+    def search(
+        self, params: SearchParamsModel
+    ) -> ValueObservable[ImmutableList[Item]]:
         return (
             ValueObservable.combine(self.items, params.entity)
             .map(lambda pair: self._search(pair[0], pair[1]))
@@ -66,7 +74,9 @@ class ItemsModel(Model[ListEntity[Item]]):
 
         for item in items:
             name_match = params.name.lower() in item.name.lower()
-            category_match = params.category is None or item.category == params.category
+            category_match = (
+                params.category is None or item.category == params.category
+            )
 
             if name_match and category_match:
                 filtered = filtered.append(item)
@@ -83,7 +93,9 @@ class ItemsModel(Model[ListEntity[Item]]):
 class AppModel(Model[App]):
     @property
     def items(self) -> ItemsModel:
-        return ItemsModel(self.hierarchy, self.entity.map(lambda app: app.items))
+        return ItemsModel(
+            self.hierarchy, self.entity.map(lambda app: app.items)
+        )
 
     @property
     def search_params(self) -> SearchParamsModel:

@@ -33,9 +33,9 @@ class ValueObservable[T](Observable[T]):
 
     def on_change_only(self) -> ValueObservable[T]:
         changes_only = Property[T](self.value)
-        self.filter(lambda new_value: new_value != changes_only.value).subscribe(
-            changes_only.update
-        )
+        self.filter(
+            lambda new_value: new_value != changes_only.value
+        ).subscribe(changes_only.update)
         return changes_only
 
     @staticmethod

@@ -21,12 +21,16 @@ class ButtonViewModel(ViewModel):
 class ButtonView(View[ButtonViewModel]):
     def draw(self, parent: tk.Misc) -> tk.Button:
         button = tk.Button(
-            parent, text=self.vm._text, command=lambda: self.vm._on_click.trigger(())
+            parent,
+            text=self.vm._text,
+            command=lambda: self.vm._on_click.trigger(()),
         )
 
         if self.vm._enabled is not None:
             self.vm._enabled.subscribe(
-                lambda enabled: button.config(state="normal" if enabled else "disabled")
+                lambda enabled: button.config(
+                    state="normal" if enabled else "disabled"
+                )
             )
 
         return button

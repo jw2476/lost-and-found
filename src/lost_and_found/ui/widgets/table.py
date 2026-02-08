@@ -41,7 +41,9 @@ class TableView[T](View[TableViewModel[T]]):
 
         return treeview
 
-    def _set_rows(self, treeview: ttk.Treeview, rows: ImmutableList[T]) -> None:
+    def _set_rows(
+        self, treeview: ttk.Treeview, rows: ImmutableList[T]
+    ) -> None:
         treeview.delete(*treeview.get_children())
 
         for row in rows:
@@ -49,7 +51,9 @@ class TableView[T](View[TableViewModel[T]]):
 
         self._set_selected(treeview, self.vm.selected.value)
 
-    def _set_selected(self, treeview: ttk.Treeview, selected: ImmutableList[T]) -> None:
+    def _set_selected(
+        self, treeview: ttk.Treeview, selected: ImmutableList[T]
+    ) -> None:
         treeview.selection_clear()
 
         rows = [

@@ -13,7 +13,9 @@ class SearchParams(Entity):
 
     @staticmethod
     def new() -> SearchParams:
-        return SearchParams(EntityId.new(), ImmutableList(), name="", category=None)
+        return SearchParams(
+            EntityId.new(), ImmutableList(), name="", category=None
+        )
 
     def update_child(self, child: Entity) -> SearchParams:
         return self

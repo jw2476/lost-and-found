@@ -20,10 +20,14 @@ class OptionMenuViewModel[T](ViewModel):
 
 class OptionMenuView[T](View[OptionMenuViewModel[T]]):
     def draw(self, parent: tk.Misc) -> tk.OptionMenu:
-        selected = tk.StringVar(parent, self.vm._formatter(self.vm.selected.value))
+        selected = tk.StringVar(
+            parent, self.vm._formatter(self.vm.selected.value)
+        )
         self.vm.selected.map(self.vm._formatter).subscribe(selected.set)
 
-        selected.trace_add("write", lambda *_: self._update_selected(selected.get()))
+        selected.trace_add(
+            "write", lambda *_: self._update_selected(selected.get())
+        )
 
         menu = tk.OptionMenu(
             parent,

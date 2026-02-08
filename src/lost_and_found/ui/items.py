@@ -10,7 +10,9 @@ from .add_found_item import AddFoundItemViewModel
 
 
 class ItemsViewModel(VerticalListViewModel):
-    def __init__(self, items: ItemsModel, search_params: SearchParamsModel) -> None:
+    def __init__(
+        self, items: ItemsModel, search_params: SearchParamsModel
+    ) -> None:
         table = TableViewModel(
             ("Name", "Category", "Location", "Finder", "Owner"),
             items.search(search_params),
@@ -27,11 +29,16 @@ class ItemsViewModel(VerticalListViewModel):
         add_lost_item_button = ButtonViewModel("Add Lost Item")
         add_found_item_button = ButtonViewModel("Add Found Item")
         delete_button = ButtonViewModel(
-            "Delete", enabled=table.selected.map(lambda selected: len(selected) != 0)
+            "Delete",
+            enabled=table.selected.map(lambda selected: len(selected) != 0),
         )
 
-        add_lost_item_button.on_click.subscribe(lambda _: AddLostItemViewModel(items))
-        add_found_item_button.on_click.subscribe(lambda _: AddFoundItemViewModel(items))
+        add_lost_item_button.on_click.subscribe(
+            lambda _: AddLostItemViewModel(items)
+        )
+        add_found_item_button.on_click.subscribe(
+            lambda _: AddFoundItemViewModel(items)
+        )
         delete_button.on_click.subscribe(
             lambda _: items.remove_all(table.selected.value)
         )

@@ -72,7 +72,7 @@ def test_mapped_property_calls_subscriber_on_property_update():
     assert subscriber.calls == [10, 12]
 
 
-def test_filtered_property_calls_subscriber_on_property_update_that_meets_predicate():
+def test_filtered_property_calls_subscriber_on_update_that_meets_predicate():
     property = Property(initial=4)
     even = property.filter(lambda x: x % 2 == 0)
 

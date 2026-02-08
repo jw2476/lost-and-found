@@ -97,7 +97,9 @@ class Item(Entity):
             owner_email=None,
         )
 
-    def mark_as_found(self, found: datetime, location: str, finder_email: str) -> Item:
+    def mark_as_found(
+        self, found: datetime, location: str, finder_email: str
+    ) -> Item:
         """
         Mark an item as found. Item must not have been found already.
 

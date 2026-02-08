@@ -22,7 +22,9 @@ class CallableMock[T]:
 
 
 def lost_item(name: str) -> Item:
-    return Item.create_lost_item(name, Category.BOOKS, datetime.now(), "owner@test.com")
+    return Item.create_lost_item(
+        name, Category.BOOKS, datetime.now(), "owner@test.com"
+    )
 
 
 def test_search_params_model_name_updates_on_hierarchy_update():
@@ -72,7 +74,9 @@ def test_items_model_search_filters_items():
     search_params = SearchParamsModel(
         hierarchy, hierarchy.observable.map(lambda app: app.search_params)
     )
-    items = ItemsModel(hierarchy, hierarchy.observable.map(lambda app: app.items))
+    items = ItemsModel(
+        hierarchy, hierarchy.observable.map(lambda app: app.items)
+    )
 
     items.append(lost_item("Shoe"))
     items.append(lost_item("Boot"))
@@ -92,7 +96,9 @@ def test_items_model_search_no_update_on_same_value():
     search_params = SearchParamsModel(
         hierarchy, hierarchy.observable.map(lambda app: app.search_params)
     )
-    items = ItemsModel(hierarchy, hierarchy.observable.map(lambda app: app.items))
+    items = ItemsModel(
+        hierarchy, hierarchy.observable.map(lambda app: app.items)
+    )
 
     items.append(lost_item("Shoe"))
     items.append(lost_item("Boot"))
