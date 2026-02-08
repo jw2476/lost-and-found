@@ -1,10 +1,7 @@
 from lost_and_found.core import ImmutableList
-from re import search
-from operator import sub
 from lost_and_found.state import (
     SearchParamsModel,
     Hierarchy,
-    SearchParams,
     App,
     Item,
     ItemsModel,
