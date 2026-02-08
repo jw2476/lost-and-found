@@ -1,5 +1,14 @@
+from datetime import datetime
 from lost_and_found.core import ImmutableList
-from lost_and_found.state import Item, Entity, App, ListEntity, Hierarchy
+from lost_and_found.state import (
+    Item,
+    Entity,
+    App,
+    ListEntity,
+    Hierarchy,
+    Category,
+    SearchParams,
+)
 
 
 class CallableMock[T]:
@@ -13,11 +22,8 @@ class CallableMock[T]:
         self.calls.clear()
 
 
-def test_item_new():
-    item = Item.new("Shoe")
-
-    assert item.children == ImmutableList[Entity]()
-    assert item.name == "Shoe"
+def lost_item(name: str) -> Item:
+    return Item.create_lost_item(name, Category.BOOKS, datetime.now(), "owner@test.com")
 
 
 def test_list_entity_new():
@@ -28,15 +34,15 @@ def test_list_entity_new():
 
 def test_list_entity_append():
     items = ListEntity[Item].new()
-    items = items.append(Item.new("Shoe"))
+    items = items.append(lost_item("Shoe"))
 
     assert [item.name for item in items.items] == ["Shoe"]
 
 
 def test_list_entity_remove_all():
     items = ListEntity[Item].new()
-    item1 = Item.new("Shoe")
-    item2 = Item.new("Boot")
+    item1 = lost_item("Shoe")
+    item2 = lost_item("Boot")
     items = items.append(item1).append(item2)
     items = items.remove_all(ImmutableList[Item]((item1,)))
 
@@ -44,24 +50,26 @@ def test_list_entity_remove_all():
 
 
 def test_list_entity_update_child():
-    items = ListEntity[Item].new()
-    items = items.append(Item.new("Shoe"))
-    items = items.update_child(items.items[0].update_name("Boot"))
+    list_entity = ListEntity[SearchParams].new()
+    list_entity = list_entity.append(SearchParams.new())
+    list_entity = list_entity.update_child(list_entity.items[0].update_name("Boot"))
 
-    assert [item.name for item in items.items] == ["Boot"]
+    assert [item.name for item in list_entity.items] == ["Boot"]
 
 
 def test_hierarchy_update():
     app = App.new()
     hierarchy = Hierarchy[App](app)
 
-    item = Item.new("Shoe")
+    item = lost_item("Shoe")
     hierarchy.update(app.items.append(item))
 
-    assert [item.name for item in hierarchy.root.items.items] == ["Shoe"]
+    assert [item.finder_email for item in hierarchy.root.items.items] == [None]
 
-    hierarchy.update(item.update_name("Boot"))
-    assert [item.name for item in hierarchy.root.items.items] == ["Boot"]
+    hierarchy.update(item.mark_as_found(datetime.now(), "Library", "finder@test.com"))
+    assert [item.finder_email for item in hierarchy.root.items.items] == [
+        "finder@test.com"
+    ]
 
 
 def test_hierarchy_observable():
@@ -72,6 +80,6 @@ def test_hierarchy_observable():
     hierarchy.observable.subscribe(subscriber)
     assert subscriber.calls == [app]
 
-    item = Item.new("Shoe")
+    item = lost_item("Shoe")
     hierarchy.update(app.items.append(item))
     assert subscriber.calls == [app, hierarchy.root]

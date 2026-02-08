@@ -1,3 +1,7 @@
+from datetime import datetime
+from lost_and_found.state import Category
+
+
 def main() -> None:
     import tkinter
 
@@ -36,7 +40,13 @@ def main() -> None:
     items_table.draw(root).pack()
 
     add_button = ButtonViewModel("Add")
-    add_button.on_click.subscribe(lambda _: items.append(Item.new("Boot")))
+    add_button.on_click.subscribe(
+        lambda _: items.append(
+            Item.create_lost_item(
+                "Boot", Category.CLOTHING, datetime.now(), "test@gmail.com"
+            )
+        )
+    )
 
     delete_button = ButtonViewModel(
         "Delete", enabled=items_table.selected.map(lambda selected: len(selected) != 0)

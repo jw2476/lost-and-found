@@ -38,21 +38,6 @@ class Entity(abc.ABC):
 
 
 @dataclass(frozen=True)
-class Item(Entity):
-    name: str
-
-    @staticmethod
-    def new(name: str) -> Item:
-        return Item(EntityId.new(), ImmutableList[Entity](), name)
-
-    def update_child(self, child: Entity) -> Item:
-        return self
-
-    def update_name(self, name: str) -> Item:
-        return Item(self.id, self.children, name)
-
-
-@dataclass(frozen=True)
 class ListEntity[T: Entity](Entity):
     items: ImmutableList[T] = ImmutableList[T]()
 
@@ -83,58 +68,6 @@ class ListEntity[T: Entity](Entity):
                 items = items.append(item)
 
         return ListEntity[T](self.id, items, items)
-
-
-@dataclass(frozen=True)
-class App(Entity):
-    items_id: EntityId
-    search_params_id: EntityId
-
-    @staticmethod
-    def new() -> App:
-        items: ListEntity[Item] = ListEntity[Item].new()
-        search_params: SearchParams = SearchParams.new()
-
-        return App(
-            EntityId.new(),
-            children=ImmutableList[Entity]((items, search_params)),
-            items_id=items.id,
-            search_params_id=search_params.id,
-        )
-
-    @property
-    def items(self) -> ListEntity[Item]:
-        return cast(ListEntity[Item], self.get(self.items_id))
-
-    @property
-    def search_params(self) -> SearchParams:
-        return cast(SearchParams, self.get(self.search_params_id))
-
-    def update_child(self, child: Entity) -> App:
-        children: ImmutableList[Entity] = ImmutableList[Entity]()
-
-        for c in self.children:
-            if c.id == child.id:
-                children = children.append(child)
-            else:
-                children = children.append(c)
-
-        return App(self.id, children, self.items_id, self.search_params_id)
-
-
-@dataclass(frozen=True)
-class SearchParams(Entity):
-    name: str
-
-    @staticmethod
-    def new() -> SearchParams:
-        return SearchParams(EntityId.new(), ImmutableList(), "")
-
-    def update_child(self, child: Entity) -> SearchParams:
-        return self
-
-    def update_name(self, name: str) -> SearchParams:
-        return SearchParams(self.id, self.children, name)
 
 
 class Hierarchy[T: Entity]:

@@ -1,3 +1,4 @@
+from datetime import datetime
 from lost_and_found.core import ImmutableList
 from lost_and_found.state import (
     SearchParamsModel,
@@ -5,6 +6,7 @@ from lost_and_found.state import (
     App,
     Item,
     ItemsModel,
+    Category,
 )
 
 
@@ -17,6 +19,10 @@ class CallableMock[T]:
 
     def reset(self):
         self.calls.clear()
+
+
+def lost_item(name: str) -> Item:
+    return Item.create_lost_item(name, Category.BOOKS, datetime.now(), "owner@test.com")
 
 
 def test_search_params_model_name_updates_on_hierarchy_update():
@@ -68,8 +74,8 @@ def test_items_model_search_filters_items():
     )
     items = ItemsModel(hierarchy, hierarchy.observable.map(lambda app: app.items))
 
-    items.append(Item.new("Shoe"))
-    items.append(Item.new("Boot"))
+    items.append(lost_item("Shoe"))
+    items.append(lost_item("Boot"))
 
     search_results = items.search(search_params)
     assert len(search_results.value) == 2
@@ -88,8 +94,8 @@ def test_items_model_search_no_update_on_same_value():
     )
     items = ItemsModel(hierarchy, hierarchy.observable.map(lambda app: app.items))
 
-    items.append(Item.new("Shoe"))
-    items.append(Item.new("Boot"))
+    items.append(lost_item("Shoe"))
+    items.append(lost_item("Boot"))
 
     search_results = items.search(search_params)
     assert len(search_results.value) == 2
