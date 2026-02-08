@@ -2,7 +2,6 @@ from datetime import datetime
 from lost_and_found.core import ImmutableList
 from lost_and_found.state import (
     Item,
-    Entity,
     App,
     ListEntity,
     Hierarchy,

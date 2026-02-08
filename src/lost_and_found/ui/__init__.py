@@ -1,44 +1,12 @@
-from .widgets import (
-    View,
-    ViewModel,
-    ButtonView,
-    ButtonViewModel,
-    DialogView,
-    DialogViewModel,
-    EntryView,
-    EntryViewModel,
-    GridView,
-    GridViewModel,
-    HorizontalListView,
-    HorizontalListViewModel,
-    LabelView,
-    LabelViewModel,
-    OptionMenuView,
-    OptionMenuViewModel,
-    TableView,
-    TableViewModel,
-)
+from ..state import AppModel
+from .widgets import VerticalListViewModel
+from .items import ItemsViewModel
+from .search_params import SearchParamsViewModel
 
-from .add_lost_item import AddLostItemViewModel
 
-__all__ = [
-    "View",
-    "ViewModel",
-    "ButtonView",
-    "ButtonViewModel",
-    "EntryView",
-    "EntryViewModel",
-    "DialogView",
-    "DialogViewModel",
-    "GridView",
-    "GridViewModel",
-    "HorizontalListView",
-    "HorizontalListViewModel",
-    "LabelView",
-    "LabelViewModel",
-    "OptionMenuView",
-    "OptionMenuViewModel",
-    "TableView",
-    "TableViewModel",
-    "AddLostItemViewModel",
-]
+class AppViewModel(VerticalListViewModel):
+    def __init__(self, app: AppModel):
+        super().__init__(
+            SearchParamsViewModel(app.search_params),
+            ItemsViewModel(app.items, app.search_params),
+        )

@@ -1,6 +1,7 @@
 from typing import Callable
 from ..core import ValueObservable, Property, ImmutableList
 from .entity import Entity, Hierarchy, ListEntity
+from .app import App
 from .item import Item
 from .search import SearchParams
 from abc import ABC
@@ -68,3 +69,15 @@ class ItemsModel(Model[ListEntity[Item]]):
 
     def remove_all(self, to_remove: ImmutableList[Item]) -> None:
         self.update(lambda items: items.remove_all(to_remove))
+
+
+class AppModel(Model[App]):
+    @property
+    def items(self) -> ItemsModel:
+        return ItemsModel(self.hierarchy, self.entity.map(lambda app: app.items))
+
+    @property
+    def search_params(self) -> SearchParamsModel:
+        return SearchParamsModel(
+            self.hierarchy, self.entity.map(lambda app: app.search_params)
+        )

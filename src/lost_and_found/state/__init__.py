@@ -2,7 +2,7 @@ from .entity import EntityId, Entity, ListEntity, Hierarchy
 from .item import Item, Category
 from .app import App
 from .search import SearchParams
-from .model import SearchParamsModel, ItemsModel
+from .model import SearchParamsModel, ItemsModel, AppModel
 
 __all__ = [
     "EntityId",
@@ -15,4 +15,5 @@ __all__ = [
     "SearchParams",
     "SearchParamsModel",
     "ItemsModel",
+    "AppModel",
 ]
