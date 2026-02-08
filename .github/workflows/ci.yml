@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Setup environment
+        run: uv sync --frozen
+      - name: Format
+        run: uv run --frozen ruff check
+      - name: Check types
+        run: uv run --frozen ty check
+      - name: Run tests
+        run: uv run --frozen pytest
