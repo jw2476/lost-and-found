@@ -1,15 +1,14 @@
-from .state import SearchParamsModel, ItemsModel, App, Hierarchy, Item
-from .ui import (
-    EntryViewModel,
-    TableViewModel,
-    ButtonViewModel,
-    LabelViewModel,
-    HorizontalListViewModel,
-)
-
-
 def main() -> None:
     import tkinter
+
+    from .state import SearchParamsModel, ItemsModel, App, Hierarchy, Item
+    from .ui import (
+        EntryViewModel,
+        TableViewModel,
+        ButtonViewModel,
+        LabelViewModel,
+        HorizontalListViewModel,
+    )
 
     hierarchy = Hierarchy(App.new())
     hierarchy.update(hierarchy.root.items.append(Item.new("Shoe")))
