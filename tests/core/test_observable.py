@@ -1,4 +1,4 @@
-from lost_and_found.core import Property
+from lost_and_found.core import Property, ValueObservable
 
 
 class CallableMock[T]:
@@ -109,3 +109,20 @@ def test_filtered_property_with_initial_value_calls_subscriber_on_update():
 
     property.update(6)
     assert subscriber.calls == [6]
+
+
+def test_combined_property_calls_subscriber_correctly():
+    a = Property(initial=4)
+    b = Property(initial=5)
+    combined = ValueObservable.combine(a, b)
+
+    subscriber = CallableMock()
+    combined.subscribe(subscriber)
+
+    assert subscriber.calls == [(4, 5)]
+
+    a.update(6)
+    assert subscriber.calls == [(4, 5), (6, 5)]
+
+    b.update(7)
+    assert subscriber.calls == [(4, 5), (6, 5), (6, 7)]

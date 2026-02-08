@@ -33,6 +33,16 @@ def test_list_entity_append():
     assert [item.name for item in items.items] == ["Shoe"]
 
 
+def test_list_entity_remove_all():
+    items = ListEntity[Item].new()
+    item1 = Item.new("Shoe")
+    item2 = Item.new("Boot")
+    items = items.append(item1).append(item2)
+    items = items.remove_all(ImmutableList[Item]((item1,)))
+
+    assert [item.name for item in items.items] == ["Boot"]
+
+
 def test_list_entity_update_child():
     items = ListEntity[Item].new()
     items = items.append(Item.new("Shoe"))

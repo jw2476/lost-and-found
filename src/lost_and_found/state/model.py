@@ -43,8 +43,10 @@ class ItemsModel(Model[ListEntity[Item]]):
         return self.observe(lambda items: items.items)
 
     def search(self, params: SearchParamsModel) -> ValueObservable[ImmutableList[Item]]:
-        return ValueObservable.combine(self.entity, params.entity).map(
-            lambda pair: self._search(pair[0].items, pair[1])
+        return (
+            ValueObservable.combine(self.items, params.entity)
+            .map(lambda pair: self._search(pair[0], pair[1]))
+            .on_change_only()
         )
 
     def _search(
