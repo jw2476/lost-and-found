@@ -1,8 +1,8 @@
-from typing import Callable
+from typing import Callable, Optional
 from ..core import ValueObservable, Property, ImmutableList
 from .entity import Entity, Hierarchy, ListEntity
 from .app import App
-from .item import Item
+from .item import Item, Category
 from .search import SearchParams
 from abc import ABC
 
@@ -35,8 +35,15 @@ class SearchParamsModel(Model[SearchParams]):
     @property
     def name(self) -> Property[str]:
         return self.property(
-            lambda params: params.name,
-            lambda params, new_name: params.update_name(new_name),
+            lambda x: x.name,
+            lambda x, new_name: x.update_name(new_name),
+        )
+
+    @property
+    def category(self) -> Property[Optional[Category]]:
+        return self.property(
+            lambda x: x.category,
+            lambda x, new_category: x.update_category(new_category),
         )
 
 
@@ -59,7 +66,9 @@ class ItemsModel(Model[ListEntity[Item]]):
 
         for item in items:
             name_match = params.name.lower() in item.name.lower()
-            if name_match:
+            category_match = params.category is None or item.category == params.category
+
+            if name_match and category_match:
                 filtered = filtered.append(item)
 
         return filtered

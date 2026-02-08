@@ -1,5 +1,10 @@
-from .widgets import HorizontalListViewModel, EntryViewModel, LabelViewModel
-from ..state import SearchParamsModel
+from .widgets import (
+    HorizontalListViewModel,
+    EntryViewModel,
+    LabelViewModel,
+    OptionMenuViewModel,
+)
+from ..state import SearchParamsModel, Category
 
 
 class SearchParamsViewModel(HorizontalListViewModel):
@@ -7,4 +12,10 @@ class SearchParamsViewModel(HorizontalListViewModel):
         super().__init__(
             LabelViewModel("Name:"),
             EntryViewModel(search_params.name),
+            LabelViewModel("Category:"),
+            OptionMenuViewModel(
+                search_params.category,
+                lambda category: category.value if category else "All",
+                *(None, *[category for category in Category]),
+            ),
         )
