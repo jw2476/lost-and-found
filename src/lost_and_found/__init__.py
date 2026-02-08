@@ -1,4 +1,3 @@
-import tkinter
 from .state import SearchParamsModel, ItemsModel, App, Hierarchy, Item
 from .ui import (
     EntryViewModel,
@@ -10,6 +9,8 @@ from .ui import (
 
 
 def main() -> None:
+    import tkinter
+
     hierarchy = Hierarchy(App.new())
     hierarchy.update(hierarchy.root.items.append(Item.new("Shoe")))
 
