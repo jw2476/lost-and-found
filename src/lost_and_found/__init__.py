@@ -1,17 +1,14 @@
-from lost_and_found.ui import AddLostItemViewModel
-from datetime import datetime
-
-
 def main() -> None:
     import tkinter
 
-    from .state import SearchParamsModel, ItemsModel, App, Hierarchy, Item, Category
+    from .state import SearchParamsModel, ItemsModel, App, Hierarchy, Item
     from .ui import (
         EntryViewModel,
         TableViewModel,
         ButtonViewModel,
         LabelViewModel,
         HorizontalListViewModel,
+        AddLostItemViewModel,
     )
 
     hierarchy = Hierarchy(App.new())
@@ -47,7 +44,7 @@ def main() -> None:
     items_table.draw(root).pack()
 
     add_button = ButtonViewModel("Add")
-    add_button.on_click.subscribe(lambda _: AddLostItemViewModel())
+    add_button.on_click.subscribe(lambda _: AddLostItemViewModel(items))
 
     delete_button = ButtonViewModel(
         "Delete", enabled=items_table.selected.map(lambda selected: len(selected) != 0)

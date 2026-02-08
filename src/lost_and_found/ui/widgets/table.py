@@ -1,7 +1,7 @@
 from typing import Callable, cast, Any
 import tkinter as tk
 import tkinter.ttk as ttk
-from ..core import ValueObservable, ImmutableList, Property
+from ...core import ValueObservable, ImmutableList, Property
 from .base import View, ViewModel
 
 

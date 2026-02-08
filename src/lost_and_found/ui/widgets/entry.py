@@ -1,4 +1,4 @@
-from ..core import Property
+from ...core import Property
 from .base import ViewModel, View
 import tkinter as tk
 

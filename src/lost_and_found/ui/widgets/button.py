@@ -1,5 +1,5 @@
 from typing import Optional
-from ..core import Trigger, Observable, ValueObservable
+from ...core import Trigger, Observable, ValueObservable
 from .base import View, ViewModel
 import tkinter as tk
 
