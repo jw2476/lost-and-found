@@ -11,7 +11,6 @@ def main() -> None:
     )
 
     hierarchy = Hierarchy(App.new())
-    hierarchy.update(hierarchy.root.items.append(Item.new("Shoe")))
 
     root = tkinter.Tk()
 
