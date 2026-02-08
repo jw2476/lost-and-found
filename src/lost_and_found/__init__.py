@@ -1,20 +1,51 @@
 import tkinter
-from lost_and_found.state.model import SearchParamsModel
-from lost_and_found.ui import EntryViewModel
-from lost_and_found.state import App, Hierarchy
+from .state import SearchParamsModel, ItemsModel, App, Hierarchy, Item
+from .ui import (
+    EntryViewModel,
+    TableViewModel,
+    ButtonViewModel,
+    LabelViewModel,
+    HorizontalListViewModel,
+)
 
 
 def main() -> None:
     hierarchy = Hierarchy(App.new())
-
-    model = SearchParamsModel(
-        hierarchy, hierarchy.observable.map(lambda app: app.search_params)
-    )
-
-    view_model = EntryViewModel(model.name)
+    hierarchy.update(hierarchy.root.items.append(Item.new("Shoe")))
 
     root = tkinter.Tk()
 
-    view_model.view.draw(root).pack()
+    search_params = SearchParamsModel(
+        hierarchy, hierarchy.observable.map(lambda app: app.search_params)
+    )
+
+    search_name_entry = EntryViewModel(search_params.name)
+
+    HorizontalListViewModel(LabelViewModel("Name:"), search_name_entry).draw(
+        root
+    ).pack()
+
+    items = ItemsModel(hierarchy, hierarchy.observable.map(lambda app: app.items))
+    items_table = TableViewModel(
+        ("Name",),
+        items.search(search_params),
+        lambda item: (
+            str(item.id.id),
+            item.name,
+        ),
+    )
+    items_table.draw(root).pack()
+
+    add_button = ButtonViewModel("Add")
+    add_button.on_click.subscribe(lambda _: items.append(Item.new("Boot")))
+
+    delete_button = ButtonViewModel(
+        "Delete", enabled=items_table.selected.map(lambda selected: len(selected) != 0)
+    )
+    delete_button.on_click.subscribe(
+        lambda _: items.remove_all(items_table.selected.value)
+    )
+
+    HorizontalListViewModel(add_button, delete_button).draw(root).pack()
 
     root.mainloop()

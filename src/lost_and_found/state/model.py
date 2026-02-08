@@ -1,6 +1,6 @@
 from typing import Callable
-from lost_and_found.core.observable import ValueObservable, Property
-from lost_and_found.state.entity import Entity, Hierarchy, SearchParams
+from ..core import ValueObservable, Property, ImmutableList
+from .entity import Entity, Hierarchy, SearchParams, ListEntity, Item
 from abc import ABC
 
 
@@ -21,10 +21,46 @@ class Model[T: Entity](ABC):
 
         return property
 
+    def observe[TValue](self, getter: Callable[[T], TValue]) -> ValueObservable[TValue]:
+        return self.entity.map(getter).on_change_only()
+
+    def update(self, update: Callable[[T], T]) -> None:
+        self.hierarchy.update(update(self.entity.value))
+
 
 class SearchParamsModel(Model[SearchParams]):
     @property
     def name(self) -> Property[str]:
         return self.property(
-            lambda params: params.name, lambda params, name: params.update_name(name)
+            lambda params: params.name,
+            lambda params, new_name: params.update_name(new_name),
         )
+
+
+class ItemsModel(Model[ListEntity[Item]]):
+    @property
+    def items(self) -> ValueObservable[ImmutableList[Item]]:
+        return self.observe(lambda items: items.items)
+
+    def search(self, params: SearchParamsModel) -> ValueObservable[ImmutableList[Item]]:
+        return ValueObservable.combine(self.entity, params.entity).map(
+            lambda pair: self._search(pair[0].items, pair[1])
+        )
+
+    def _search(
+        self, items: ImmutableList[Item], params: SearchParams
+    ) -> ImmutableList[Item]:
+        filtered = ImmutableList[Item]()
+
+        for item in items:
+            name_match = params.name.lower() in item.name.lower()
+            if name_match:
+                filtered = filtered.append(item)
+
+        return filtered
+
+    def append(self, item: Item) -> None:
+        self.update(lambda items: items.append(item))
+
+    def remove_all(self, to_remove: ImmutableList[Item]) -> None:
+        self.update(lambda items: items.remove_all(to_remove))

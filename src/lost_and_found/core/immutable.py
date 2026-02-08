@@ -10,6 +10,9 @@ class ImmutableList[T]:
     def append(self, value: T) -> ImmutableList[T]:
         return ImmutableList((*self.value, value))
 
+    def remove(self, value: T) -> ImmutableList[T]:
+        return ImmutableList(tuple(item for item in self.value if item != value))
+
     def __len__(self) -> int:
         return len(self.value)
 

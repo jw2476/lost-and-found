@@ -1,8 +1,6 @@
 from __future__ import annotations
-from lost_and_found.core import ValueObservable, Property
-import pprint
+from ..core import ImmutableList, ValueObservable, Property
 from typing import cast, Optional
-from ..core.immutable import ImmutableList
 import uuid
 
 from uuid import UUID
@@ -67,6 +65,14 @@ class ListEntity[T: Entity](Entity):
         items = self.items.append(entity)
         return ListEntity[T](self.id, items, items)
 
+    def remove_all(self, to_remove: ImmutableList[T]) -> ListEntity[T]:
+        items = self.items
+
+        for item in to_remove:
+            items = items.remove(item)
+
+        return ListEntity[T](self.id, items, items)
+
     def update_child(self, child: Entity) -> ListEntity[T]:
         items: ImmutableList[T] = ImmutableList[T]()
 
@@ -102,8 +108,6 @@ class App(Entity):
 
     @property
     def search_params(self) -> SearchParams:
-        pprint.pprint(self)
-
         return cast(SearchParams, self.get(self.search_params_id))
 
     def update_child(self, child: Entity) -> App:

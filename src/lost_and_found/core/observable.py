@@ -38,6 +38,17 @@ class ValueObservable[T](Observable[T]):
         )
         return changes_only
 
+    @staticmethod
+    def combine[TA, TB](
+        a: ValueObservable[TA], b: ValueObservable[TB]
+    ) -> ValueObservable[tuple[TA, TB]]:
+        combined = Property((a.value, b.value))
+
+        a.subscribe(lambda new_a: combined.update((new_a, combined.value[1])))
+        b.subscribe(lambda new_b: combined.update((combined.value[0], new_b)))
+
+        return combined
+
 
 class ObservableFilter[T](Observable[T]):
     def __init__(self, parent: Observable[T], predicate: Callable[[T], bool]):
@@ -73,3 +84,15 @@ class Property[T](ValueObservable[T]):
         self._value: T = new_value
         for subscriber in self._subscribers:
             subscriber(self._value)
+
+
+class Trigger[T](Observable[T]):
+    def __init__(self) -> None:
+        self._subscribers: list[Callable[[T], None]] = []
+
+    def subscribe(self, subscriber: Callable[[T], None]) -> None:
+        self._subscribers.append(subscriber)
+
+    def trigger(self, value: T) -> None:
+        for subscriber in self._subscribers:
+            subscriber(value)
