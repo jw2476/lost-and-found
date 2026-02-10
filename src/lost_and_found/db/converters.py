@@ -1,8 +1,8 @@
-from typing import Type
-import sqlite3
-from ..state import Category
-from datetime import datetime
 from abc import ABC, abstractmethod
+from datetime import datetime
+from typing import Type
+
+from ..state import Category
 
 
 class Converter[T](ABC):
