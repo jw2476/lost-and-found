@@ -1,10 +1,15 @@
-from .db import FileDatabase, CategoryConverter, DatetimeConverter, ItemsTable
+from .db import (
+    CategoryConverter,
+    DatetimeConverter,
+    FileDatabase,
+    ItemsTable,
+)
 
 
 def main() -> None:
     import tkinter
 
-    from .state import App, Hierarchy, AppModel
+    from .state import App, AppModel, Hierarchy
     from .ui import AppViewModel
 
     db = FileDatabase("app.db")
@@ -14,6 +19,8 @@ def main() -> None:
 
     hierarchy = Hierarchy(App.new())
     model = AppModel(hierarchy, hierarchy.observable)
+
+    db.replicate_table_to(ItemsTable, model.items)
 
     root = tkinter.Tk()
     AppViewModel(model).draw(root).pack()

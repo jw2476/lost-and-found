@@ -1,10 +1,11 @@
-from typing import Callable, Optional
-from ..core import ValueObservable, Property, ImmutableList
-from .entity import Entity, Hierarchy, ListEntity
-from .app import App
-from .item import Item, Category
-from .search import SearchParams
 from abc import ABC
+from typing import Callable, Optional
+
+from ..core import ImmutableList, Property, ValueObservable
+from .app import App
+from .entity import Entity, Hierarchy, ListEntity
+from .item import Category, Item
+from .search import SearchParams
 
 
 class Model[T: Entity](ABC):
@@ -37,6 +38,21 @@ class Model[T: Entity](ABC):
         self.hierarchy.update(update(self.entity.value))
 
 
+class ListModel[T: Entity](Model[ListEntity[T]]):
+    @property
+    def items(self) -> ValueObservable[ImmutableList[T]]:
+        return self.observe(lambda items: items.items)
+
+    def append(self, item: T) -> None:
+        self.update(lambda items: items.append(item))
+
+    def remove_all(self, to_remove: ImmutableList[T]) -> None:
+        self.update(lambda items: items.remove_all(to_remove))
+
+    def set(self, items: ImmutableList[T]) -> None:
+        self.update(lambda x: x.set(items))
+
+
 class SearchParamsModel(Model[SearchParams]):
     @property
     def name(self) -> Property[str]:
@@ -53,11 +69,7 @@ class SearchParamsModel(Model[SearchParams]):
         )
 
 
-class ItemsModel(Model[ListEntity[Item]]):
-    @property
-    def items(self) -> ValueObservable[ImmutableList[Item]]:
-        return self.observe(lambda items: items.items)
-
+class ItemsModel(ListModel[Item]):
     def search(
         self, params: SearchParamsModel
     ) -> ValueObservable[ImmutableList[Item]]:
@@ -82,12 +94,6 @@ class ItemsModel(Model[ListEntity[Item]]):
                 filtered = filtered.append(item)
 
         return filtered
-
-    def append(self, item: Item) -> None:
-        self.update(lambda items: items.append(item))
-
-    def remove_all(self, to_remove: ImmutableList[Item]) -> None:
-        self.update(lambda items: items.remove_all(to_remove))
 
 
 class AppModel(Model[App]):

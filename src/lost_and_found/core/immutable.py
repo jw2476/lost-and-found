@@ -1,6 +1,7 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Iterator, Any
+from typing import Any, Iterator
 
 
 @dataclass(frozen=True)

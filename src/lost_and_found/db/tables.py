@@ -1,9 +1,10 @@
-import sqlite3
-from lost_and_found.core import ImmutableList
-from ..state import Item, Entity, EntityId
-from typing import Any, Optional, cast
-from sqlite3 import Cursor
 from abc import ABC, abstractmethod
+from sqlite3 import Cursor
+from typing import Any, Optional, cast
+
+from lost_and_found.core import ImmutableList
+
+from ..state import Entity, EntityId, Item
 
 
 class Table[T: Entity](ABC):
@@ -34,24 +35,73 @@ class Table[T: Entity](ABC):
         pass
 
     @abstractmethod
+    def create_table_query(self) -> str:
+        pass
+
+    @abstractmethod
+    def select_all_query(self) -> str:
+        pass
+
+    @abstractmethod
+    def insert_query(self) -> str:
+        pass
+
+    @abstractmethod
+    def update_query(self) -> str:
+        pass
+
+    @abstractmethod
+    def delete_query(self) -> str:
+        pass
+
     def create_table(self) -> None:
-        pass
+        self.cursor.execute(self.create_table_query())
 
-    @abstractmethod
-    def select_all(self) -> list[tuple[Any, ...]]:
-        pass
+    def select_all(self) -> ImmutableList[T]:
+        self.cursor.execute(self.select_all_query())
+        values = ImmutableList[T](())
 
-    @abstractmethod
-    def insert(self, value: Item) -> None:
-        pass
+        for row in self.cursor.fetchall():
+            id = EntityId.new()
+            values = values.append(self.from_row(id, row[1:]))
+            self._pk_to_id[int(row[0])] = id
 
-    @abstractmethod
-    def update(self, value: Item) -> None:
-        pass
+        return values
 
-    @abstractmethod
-    def delete(self, value: Item) -> None:
-        pass
+    def insert(self, value: T) -> None:
+        assert self.pk(value.id) is None, "Cannot reinsert an existing value"
+
+        self.cursor.execute(
+            self.insert_query(),
+            self.to_row(value),
+        )
+
+        self._pk_to_id[cast(int, self.cursor.lastrowid)] = value.id
+
+    def update(self, value: T) -> None:
+        pk = self.pk(value.id)
+        assert pk is not None, (
+            "Cannot update a value that is not in the database"
+        )
+
+        self.cursor.execute(
+            self.update_query(),
+            (
+                *self.to_row(value),
+                pk,
+            ),
+        )
+
+    def delete(self, value: T) -> None:
+        pk = self.pk(value.id)
+        assert pk is not None, (
+            "Cannot remove a value that is not in the database"
+        )
+
+        self.cursor.execute(
+            self.delete_query(),
+            (pk,),
+        )
 
 
 class ItemsTable(Table[Item]):
@@ -70,9 +120,8 @@ class ItemsTable(Table[Item]):
             value.owner_email,
         )
 
-    def create_table(self) -> None:
-        self.cursor.execute(
-            """
+    def create_table_query(self) -> str:
+        return """
             CREATE TABLE IF NOT EXISTS items (
                 pk INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                 name TEXT NOT NULL,
@@ -84,14 +133,12 @@ class ItemsTable(Table[Item]):
                 finder_email TEXT,
                 owner_email TEXT
             )
-            """
-        )
+        """
 
-    def select_all(self) -> list[tuple[Any, ...]]:
-        self.cursor.execute(
-            """
+    def select_all_query(self) -> str:
+        return """
             SELECT
-                id,
+                pk,
                 name,
                 category,
                 lost,
@@ -102,15 +149,9 @@ class ItemsTable(Table[Item]):
                 owner_email
             FROM items
             """
-        )
 
-        return self.cursor.fetchall()
-
-    def insert(self, value: Item) -> None:
-        assert self.pk(value.id) is None, "Cannot reinsert an existing item"
-
-        self.cursor.execute(
-            """
+    def insert_query(self) -> str:
+        return """
             INSERT INTO items (
                 name,
                 category,
@@ -121,20 +162,10 @@ class ItemsTable(Table[Item]):
                 finder_email,
                 owner_email
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            self.to_row(value),
-        )
-
-        self._pk_to_id[cast(int, self.cursor.lastrowid)] = value.id
-
-    def update(self, value: Item) -> None:
-        pk = self.pk(value.id)
-        assert pk is not None, (
-            "Cannot update an item that is not in the database"
-        )
-
-        self.cursor.execute(
             """
+
+    def update_query(self) -> str:
+        return """
             UPDATE items
             SET
                 name = ?,
@@ -146,23 +177,10 @@ class ItemsTable(Table[Item]):
                 finder_email = ?,
                 owner_email = ?
             WHERE pk = ?
-            """,
-            (
-                *self.to_row(value),
-                pk,
-            ),
-        )
-
-    def delete(self, value: Item) -> None:
-        pk = self.pk(value.id)
-        assert pk is not None, (
-            "Cannot remove an item that is not in the database"
-        )
-
-        self.cursor.execute(
             """
+
+    def delete_query(self) -> str:
+        return """
             DELETE FROM items
-            WHERE id = ?
-            """,
-            (pk,),
-        )
+            WHERE pk = ?
+            """

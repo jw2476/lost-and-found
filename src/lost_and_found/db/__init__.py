@@ -1,6 +1,7 @@
-from .converters import Converter, CategoryConverter, DatetimeConverter
+from .converters import CategoryConverter, Converter, DatetimeConverter
 from .database import Database, FileDatabase
-from .tables import Table, ItemsTable
+from .replicator import Replicator
+from .tables import ItemsTable, Table
 
 __all__ = [
     Converter,
@@ -10,4 +11,5 @@ __all__ = [
     FileDatabase,
     Table,
     ItemsTable,
+    Replicator,
 ]

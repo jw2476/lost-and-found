@@ -1,12 +1,13 @@
 from __future__ import annotations
-from ..core import ImmutableList, ValueObservable, Property
-from typing import cast, Optional
-import uuid
 
-from uuid import UUID
-from dataclasses import dataclass
-from abc import abstractmethod
 import abc
+import uuid
+from abc import abstractmethod
+from dataclasses import dataclass
+from typing import Optional, cast
+from uuid import UUID
+
+from ..core import ImmutableList, Property, ValueObservable
 
 
 @dataclass(frozen=True)
@@ -56,6 +57,9 @@ class ListEntity[T: Entity](Entity):
         for item in to_remove:
             items = items.remove(item)
 
+        return ListEntity[T](self.id, items, items)
+
+    def set(self, items: ImmutableList[T]) -> ListEntity[T]:
         return ListEntity[T](self.id, items, items)
 
     def update_child(self, child: Entity) -> ListEntity[T]:
