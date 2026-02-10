@@ -24,8 +24,8 @@ class Observable[T](abc.ABC):
         """Register `subscriber` to receive updates from this observable."""
 
     def start_with(self, initial: T) -> ValueObservable[T]:
-        """Create a `ValueObservable` that starts with `initial` and follows this
-        observable's updates.
+        """Create a `ValueObservable` that starts with `initial` and
+        follows this observable's updates.
         """
         property: Property[T] = Property(initial)
         self.subscribe(property.update)

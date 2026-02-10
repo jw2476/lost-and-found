@@ -46,7 +46,8 @@ class Model[T: Entity](ABC):
     def observe[TValue](
         self, getter: Callable[[T], TValue]
     ) -> ValueObservable[TValue]:
-        """Return a `ValueObservable` view for a derived value on the entity."""
+        """Return a `ValueObservable` view for a derived value on
+        the entity."""
         return self.entity.map(getter).on_change_only()
 
     def update(self, update: Callable[[T], T]) -> None:

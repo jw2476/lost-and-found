@@ -25,7 +25,8 @@ class TableViewModel[T](ViewModel):
 
 
 class TableView[T](View[TableViewModel[T]]):
-    """Render a `ttk.Treeview` and keep selection in sync with the view-model."""
+    """Render a `ttk.Treeview` and keep selection in sync with
+    the view-model."""
 
     def draw(self, parent: tk.Misc) -> ttk.Treeview:
         treeview = ttk.Treeview(

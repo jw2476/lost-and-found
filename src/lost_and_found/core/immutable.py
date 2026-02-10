@@ -29,7 +29,8 @@ class ImmutableList[T]:
         return ImmutableList((*self.value, value))
 
     def remove(self, value: T) -> ImmutableList[T]:
-        """Return a new `ImmutableList` with all occurrences of `value` removed."""
+        """Return a new `ImmutableList` with all occurrences
+        of `value` removed."""
         return ImmutableList(
             tuple(item for item in self.value if item != value)
         )
