@@ -1,3 +1,5 @@
+"""Option menu (dropdown) binding to a `Property` with formatting."""
+
 from typing import Callable
 from .base import View, ViewModel
 from ...core import Property
@@ -5,6 +7,8 @@ import tkinter as tk
 
 
 class OptionMenuViewModel[T](ViewModel):
+    """View-model representing a selected option and available choices."""
+
     def __init__(
         self,
         selected: Property[T],
@@ -19,6 +23,8 @@ class OptionMenuViewModel[T](ViewModel):
 
 
 class OptionMenuView[T](View[OptionMenuViewModel[T]]):
+    """Render a tkinter `OptionMenu` and keep `selected` in sync."""
+
     def draw(self, parent: tk.Misc) -> tk.OptionMenu:
         selected = tk.StringVar(
             parent, self.vm._formatter(self.vm.selected.value)

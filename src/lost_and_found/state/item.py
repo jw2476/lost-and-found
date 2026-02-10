@@ -6,6 +6,13 @@ from ..core import ImmutableList
 from .entity import Entity, EntityId
 from dataclasses import dataclass
 
+"""Item entity and `Category` enum.
+
+`Item` represents a lost-or-found item tracked by the application and
+provides factory methods and convenience operations for common state
+transitions such as marking found or claiming an item.
+"""
+
 
 class Category(Enum):
     ELECTRONICS = "Electronics"
@@ -15,6 +22,8 @@ class Category(Enum):
 
 @dataclass(frozen=True)
 class Item(Entity):
+    """Immutable representation of an item in the system."""
+
     name: str
     category: Category
     lost: datetime

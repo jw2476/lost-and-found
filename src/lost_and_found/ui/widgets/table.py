@@ -1,3 +1,5 @@
+"""Table view backed by a `ValueObservable` of rows."""
+
 from typing import Callable, cast, Any
 import tkinter as tk
 import tkinter.ttk as ttk
@@ -6,6 +8,8 @@ from .base import View, ViewModel
 
 
 class TableViewModel[T](ViewModel):
+    """View-model exposing table headers, rows and selected items."""
+
     def __init__(
         self,
         headers: tuple[str, ...],
@@ -21,6 +25,8 @@ class TableViewModel[T](ViewModel):
 
 
 class TableView[T](View[TableViewModel[T]]):
+    """Render a `ttk.Treeview` and keep selection in sync with the view-model."""
+
     def draw(self, parent: tk.Misc) -> ttk.Treeview:
         treeview = ttk.Treeview(
             parent,

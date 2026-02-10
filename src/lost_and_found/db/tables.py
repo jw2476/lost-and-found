@@ -1,13 +1,25 @@
 from abc import ABC, abstractmethod
 from sqlite3 import Cursor
 from typing import Any, Optional, cast
-
-from lost_and_found.core import ImmutableList
-
+from ..core import ImmutableList
 from ..state import Entity, EntityId, Item
+
+"""Database table abstractions.
+
+`Table` provides a mapping between Python entity objects and rows in a
+SQLite table. Concrete tables should implement the SQL query helpers and
+row (de)serialization functions.
+"""
 
 
 class Table[T: Entity](ABC):
+    """Base class representing a DB table for entities of type `T`.
+
+    The class stores a cursor and maintains a mapping between SQLite primary
+    keys and in-memory `EntityId`s so rows can be correlated with model
+    entities.
+    """
+
     def __init__(self, cursor: Cursor) -> None:
         self.cursor: Cursor = cursor
         self._pk_to_id: dict[int, EntityId] = {}
@@ -15,6 +27,9 @@ class Table[T: Entity](ABC):
         self.create_table()
 
     def id(self, pk: int) -> EntityId:
+        """Return the `EntityId` for a given primary key, creating one if
+        none exists yet.
+        """
         for key, value in self._pk_to_id.items():
             if key == pk:
                 return value
@@ -22,6 +37,9 @@ class Table[T: Entity](ABC):
         return EntityId.new()
 
     def pk(self, id: EntityId) -> Optional[int]:
+        """Return the primary key for an `EntityId` if known, otherwise
+        `None`.
+        """
         for key, value in self._pk_to_id.items():
             if value == id:
                 return key
@@ -55,20 +73,26 @@ class Table[T: Entity](ABC):
         pass
 
     def create_table(self) -> None:
+        """Execute the table creation SQL returned by `create_table_query`."""
         self.cursor.execute(self.create_table_query())
 
     def select_all(self) -> ImmutableList[T]:
+        """Select all rows from the table and return them as an
+        `ImmutableList` of entities.
+        """
         self.cursor.execute(self.select_all_query())
         values = ImmutableList[T](())
 
         for row in self.cursor.fetchall():
-            id = EntityId.new()
+            pk = int(row[0])
+            id = self.id(pk)
             values = values.append(self.from_row(id, row[1:]))
-            self._pk_to_id[int(row[0])] = id
+            self._pk_to_id[pk] = id
 
         return values
 
     def insert(self, value: T) -> None:
+        """Insert `value` as a new row and record its primary key mapping."""
         assert self.pk(value.id) is None, "Cannot reinsert an existing value"
 
         self.cursor.execute(
@@ -79,6 +103,7 @@ class Table[T: Entity](ABC):
         self._pk_to_id[cast(int, self.cursor.lastrowid)] = value.id
 
     def update(self, value: T) -> None:
+        """Update an existing row corresponding to `value`."""
         pk = self.pk(value.id)
         assert pk is not None, (
             "Cannot update a value that is not in the database"
@@ -93,6 +118,7 @@ class Table[T: Entity](ABC):
         )
 
     def delete(self, value: T) -> None:
+        """Remove the row that corresponds to `value`."""
         pk = self.pk(value.id)
         assert pk is not None, (
             "Cannot remove a value that is not in the database"
@@ -105,6 +131,8 @@ class Table[T: Entity](ABC):
 
 
 class ItemsTable(Table[Item]):
+    """Concrete table implementation for `Item` entities."""
+
     def from_row(self, id: EntityId, row: tuple[Any, ...]) -> Item:
         return Item(id, ImmutableList[Entity](()), *row)
 

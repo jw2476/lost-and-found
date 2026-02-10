@@ -1,3 +1,5 @@
+"""Dialog view-model for marking multiple items as found."""
+
 import re
 import tkinter.messagebox as msg
 from datetime import datetime
@@ -13,6 +15,8 @@ from .widgets import (
 
 
 class MarkItemsAsFoundViewModel(DialogViewModel):
+    """Collects location and contact info and marks provided items as found."""
+
     def __init__(
         self, hierarchy: Hierarchy[Entity], items: ImmutableList[Item]
     ) -> None:

@@ -1,3 +1,5 @@
+"""View model for adding a lost item via a dialog."""
+
 import re
 from datetime import datetime
 from ..core import Property
@@ -13,6 +15,12 @@ from .widgets import (
 
 
 class AddLostItemViewModel(DialogViewModel):
+    """Dialog view-model for creating a new lost `Item`.
+
+    Exposes `Property` objects for the form fields and implements
+    `validate`/`apply` for the dialog lifecycle.
+    """
+
     def __init__(self, items: ItemsModel) -> None:
         self.name: Property[str] = Property[str]("")
         self.category: Property[Category] = Property[Category](Category.BOOKS)

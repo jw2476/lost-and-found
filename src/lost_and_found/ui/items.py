@@ -1,3 +1,9 @@
+"""View models composing the main items UI.
+
+This module wires smaller view-model widgets into the top-level
+`ItemsViewModel` used by the UI to present and operate on `Item` entities.
+"""
+
 from lost_and_found.ui.claim import ClaimItemsViewModel
 
 from ..state import ItemsModel, SearchParamsModel
@@ -13,6 +19,8 @@ from .widgets import (
 
 
 class ItemsViewModel(VerticalListViewModel):
+    """Composes table and action button view models for the items screen."""
+
     def __init__(
         self, items: ItemsModel, search_params: SearchParamsModel
     ) -> None:

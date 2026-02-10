@@ -1,3 +1,5 @@
+"""Dialog view-model for claiming items."""
+
 import re
 import tkinter.messagebox as msg
 from datetime import datetime
@@ -13,6 +15,8 @@ from .widgets import (
 
 
 class ClaimItemsViewModel(DialogViewModel):
+    """Collect owner contact details and mark provided items as claimed."""
+
     def __init__(
         self, hierarchy: Hierarchy[Entity], items: ImmutableList[Item]
     ) -> None:

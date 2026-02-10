@@ -1,3 +1,5 @@
+"""View model for adding a found item via a dialog."""
+
 import re
 from datetime import datetime
 from ..core import Property
@@ -13,6 +15,8 @@ from .widgets import (
 
 
 class AddFoundItemViewModel(DialogViewModel):
+    """Dialog view-model for creating a new found `Item`."""
+
     def __init__(self, items: ItemsModel) -> None:
         self.name: Property[str] = Property[str]("")
         self.category: Property[Category] = Property[Category](Category.BOOKS)

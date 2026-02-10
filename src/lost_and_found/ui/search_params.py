@@ -1,3 +1,5 @@
+"""View model exposing search parameter controls."""
+
 from .widgets import (
     HorizontalListViewModel,
     EntryViewModel,
@@ -8,6 +10,8 @@ from ..state import SearchParamsModel, Category
 
 
 class SearchParamsViewModel(HorizontalListViewModel):
+    """View-model providing name and category controls for searching."""
+
     def __init__(self, search_params: SearchParamsModel) -> None:
         super().__init__(
             LabelViewModel("Name:"),

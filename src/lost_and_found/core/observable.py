@@ -3,35 +3,67 @@ from typing import Callable
 from abc import abstractmethod
 import abc
 
+"""Lightweight observable primitives.
+
+This module provides a small observable/value-observable API used by the
+application for simple reactive flows in the UI and state layers. The
+implementation focuses on clarity and predictable behaviour rather than
+feature completeness.
+"""
+
 
 class Observable[T](abc.ABC):
+    """Base observable interface.
+
+    Subclasses should implement `subscribe` to accept a callable that will be
+    invoked whenever the observable emits a value.
+    """
+
     @abstractmethod
     def subscribe(self, subscriber: Callable[[T], None]) -> None:
-        pass
+        """Register `subscriber` to receive updates from this observable."""
 
     def start_with(self, initial: T) -> ValueObservable[T]:
+        """Create a `ValueObservable` that starts with `initial` and follows this
+        observable's updates.
+        """
         property: Property[T] = Property(initial)
         self.subscribe(property.update)
         return property
 
     def filter(self, predicate: Callable[[T], bool]) -> Observable[T]:
+        """Return an observable that only emits values for which
+        `predicate` is true.
+        """
         return ObservableFilter(self, predicate)
 
 
 class ValueObservable[T](Observable[T]):
+    """An `Observable` that has a current `value`.
+
+    `ValueObservable` implementations expose a `value` property and provide
+    convenience helpers like `map` and `combine`.
+    """
+
     @property
     @abstractmethod
     def value(self) -> T:
-        pass
+        """The current value of the observable."""
 
     def map[TResult](
         self, transform: Callable[[T], TResult]
     ) -> ValueObservable[TResult]:
+        """Return a mapped `ValueObservable` whose value is `transform(value)`,
+        and which updates whenever the source changes.
+        """
         mapped: Property[TResult] = Property(transform(self.value))
         self.subscribe(lambda new_value: mapped.update(transform(new_value)))
         return mapped
 
     def on_change_only(self) -> ValueObservable[T]:
+        """Return a `ValueObservable` that filters out consecutive duplicate
+        values, emitting only on actual changes.
+        """
         changes_only = Property[T](self.value)
         self.filter(
             lambda new_value: new_value != changes_only.value
@@ -42,6 +74,10 @@ class ValueObservable[T](Observable[T]):
     def combine[TA, TB](
         a: ValueObservable[TA], b: ValueObservable[TB]
     ) -> ValueObservable[tuple[TA, TB]]:
+        """Combine two `ValueObservable`s into one that yields pairs of values.
+
+        The returned `ValueObservable` updates whenever either source updates.
+        """
         combined = Property((a.value, b.value))
 
         a.subscribe(lambda new_a: combined.update((new_a, combined.value[1])))
@@ -51,6 +87,10 @@ class ValueObservable[T](Observable[T]):
 
 
 class ObservableFilter[T](Observable[T]):
+    """An observable that forwards values from a parent only when a predicate
+    passes.
+    """
+
     def __init__(self, parent: Observable[T], predicate: Callable[[T], bool]):
         self._parent: Observable[T] = parent
         self._predicate: Callable[[T], bool] = predicate
@@ -64,35 +104,52 @@ class ObservableFilter[T](Observable[T]):
                 subscriber(new_value)
 
     def subscribe(self, subscriber: Callable[[T], None]) -> None:
+        """Register a subscriber to receive filtered values."""
         self._subscribers.append(subscriber)
 
 
 class Property[T](ValueObservable[T]):
+    """A simple mutable `ValueObservable`.
+
+    Calling `update` changes the stored value and notifies subscribers. When a
+    subscriber registers it is immediately called with the current value.
+    """
+
     def __init__(self, initial: T):
         self._value: T = initial
         self._subscribers: list[Callable[[T], None]] = []
 
     def subscribe(self, subscriber: Callable[[T], None]) -> None:
+        """Subscribe and immediately notify with the current `value`."""
         subscriber(self._value)
         self._subscribers.append(subscriber)
 
     @property
     def value(self) -> T:
+        """The current stored value."""
         return self._value
 
     def update(self, new_value: T) -> None:
+        """Set `new_value` and notify subscribers."""
         self._value: T = new_value
         for subscriber in self._subscribers:
             subscriber(self._value)
 
 
 class Trigger[T](Observable[T]):
+    """An observable that only notifies subscribers when `trigger` is called.
+
+    Useful for one-off events rather than maintaining a current value.
+    """
+
     def __init__(self) -> None:
         self._subscribers: list[Callable[[T], None]] = []
 
     def subscribe(self, subscriber: Callable[[T], None]) -> None:
+        """Register a subscriber to be invoked when `trigger` is called."""
         self._subscribers.append(subscriber)
 
     def trigger(self, value: T) -> None:
+        """Invoke all subscribers with `value`."""
         for subscriber in self._subscribers:
             subscriber(value)

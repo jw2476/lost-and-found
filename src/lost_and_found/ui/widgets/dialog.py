@@ -1,3 +1,5 @@
+"""Dialog wdiget view and view-model."""
+
 from tkinter.simpledialog import Dialog
 from abc import abstractmethod
 from .base import View, ViewModel
@@ -5,6 +7,8 @@ import tkinter as tk
 
 
 class DialogViewModel(ViewModel):
+    """Base class for dialog view-models supporting validation/apply."""
+
     def __init__(self, title: str, body: ViewModel) -> None:
         self._title = title
         self._body = body
@@ -20,6 +24,8 @@ class DialogViewModel(ViewModel):
 
 
 class DialogView(Dialog, View[DialogViewModel]):
+    """Render a simple modal dialog that delegates to a `DialogViewModel`."""
+
     def __init__(self, vm: DialogViewModel) -> None:
         View.__init__(self, vm)
         Dialog.__init__(self, parent=None, title=self.vm._title)

@@ -1,13 +1,26 @@
 from abc import ABC
 from typing import Optional
 
-from lost_and_found.core import ImmutableList
-
+from ..core import ImmutableList
 from ..state import Entity, EntityId, ListModel
 from .tables import Table
 
+"""Replication helper to mirror in-memory models into database tables.
+
+`Replicator` listens to a `ListModel` and applies inserts/updates/deletes to
+the provided `Table` instance so the database stays in sync with the in-memory
+model.
+"""
+
 
 class Replicator[T: Entity](ABC):
+    """Listen to a `ListModel` and apply changes to a `Table`.
+
+    On construction the replicator seeds the model with existing rows from
+    `table.select_all()` and subscribes to subsequent changes to replicate
+    diffs into the table.
+    """
+
     def __init__(self, model: ListModel[T], table: Table[T]) -> None:
         self.table = table
         self.previous: Optional[ImmutableList[T]] = None
@@ -16,6 +29,7 @@ class Replicator[T: Entity](ABC):
         model.items.subscribe(self.on_change)
 
     def on_change(self, values: ImmutableList[T]) -> None:
+        """Handle updated model values by computing and applying a diff."""
         if self.previous is not None:
             inserted, updated, deleted = Replicator[T].diff(
                 self.previous, values
@@ -36,6 +50,11 @@ class Replicator[T: Entity](ABC):
     def diff(
         previous: ImmutableList[T], current: ImmutableList[T]
     ) -> tuple[ImmutableList[T], ImmutableList[T], ImmutableList[T]]:
+        """Return three lists: (inserted, updated, deleted) between two states.
+
+        Entities are compared by `id`. When an id is present in both but the
+        object identity differs the entity is considered updated.
+        """
         previous_ids_to_entities: dict[EntityId, T] = dict(
             [(x.id, x) for x in previous]
         )

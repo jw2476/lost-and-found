@@ -6,8 +6,13 @@ from .item import Category
 from dataclasses import dataclass
 
 
+"""Search parameters entity used to filter `Item` lists."""
+
+
 @dataclass(frozen=True)
 class SearchParams(Entity):
+    """Entity storing the current search `name` and optional `category`."""
+
     name: str
     category: Optional[Category]
 
