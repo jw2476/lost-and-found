@@ -1,7 +1,7 @@
 from ..state import AppModel
-from .widgets import VerticalListViewModel
 from .items import ItemsViewModel
 from .search_params import SearchParamsViewModel
+from .widgets import VerticalListViewModel
 
 
 class AppViewModel(VerticalListViewModel):

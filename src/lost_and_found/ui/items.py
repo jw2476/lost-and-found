@@ -1,12 +1,15 @@
+from lost_and_found.ui.claim import ClaimItemsViewModel
+
 from ..state import ItemsModel, SearchParamsModel
+from .add_found_item import AddFoundItemViewModel
+from .add_lost_item import AddLostItemViewModel
+from .mark_as_found import MarkItemsAsFoundViewModel
 from .widgets import (
-    VerticalListViewModel,
-    TableViewModel,
     ButtonViewModel,
     HorizontalListViewModel,
+    TableViewModel,
+    VerticalListViewModel,
 )
-from .add_lost_item import AddLostItemViewModel
-from .add_found_item import AddFoundItemViewModel
 
 
 class ItemsViewModel(VerticalListViewModel):
@@ -32,6 +35,25 @@ class ItemsViewModel(VerticalListViewModel):
             "Delete",
             enabled=table.selected.map(lambda selected: len(selected) != 0),
         )
+        mark_items_as_found_button = ButtonViewModel(
+            "Mark Item as Found",
+            enabled=table.selected.map(
+                lambda selected: (
+                    len(selected) != 0
+                    and all([item.found is None for item in selected])
+                )
+            ),
+        )
+        claim_items_button = ButtonViewModel(
+            "Claim Items",
+            enabled=table.selected.map(
+                lambda selected: (
+                    len(selected) != 0
+                    and all([item.found is not None for item in selected])
+                    and all([item.claimed is None for item in selected])
+                )
+            ),
+        )
 
         add_lost_item_button.on_click.subscribe(
             lambda _: AddLostItemViewModel(items)
@@ -42,10 +64,24 @@ class ItemsViewModel(VerticalListViewModel):
         delete_button.on_click.subscribe(
             lambda _: items.remove_all(table.selected.value)
         )
+        mark_items_as_found_button.on_click.subscribe(
+            lambda _: MarkItemsAsFoundViewModel(
+                items.hierarchy, table.selected.value
+            )
+        )
+        claim_items_button.on_click.subscribe(
+            lambda _: ClaimItemsViewModel(
+                items.hierarchy, table.selected.value
+            )
+        )
 
         super().__init__(
             table,
             HorizontalListViewModel(
-                add_lost_item_button, add_found_item_button, delete_button
+                add_lost_item_button,
+                add_found_item_button,
+                delete_button,
+                mark_items_as_found_button,
+                claim_items_button,
             ),
         )
