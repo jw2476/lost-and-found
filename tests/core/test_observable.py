@@ -1,4 +1,4 @@
-from lost_and_found.core import Property, ValueObservable
+from lost_and_found.core import Property, ValueObservable, Trigger
 
 
 class CallableMock[T]:
@@ -126,3 +126,28 @@ def test_combined_property_calls_subscriber_correctly():
 
     b.update(7)
     assert subscriber.calls == [(4, 5), (6, 5), (6, 7)]
+
+
+def test_trigger_does_not_call_on_subscribe():
+    trigger = Trigger[int]()
+    subscriber = CallableMock[int]()
+
+    trigger.subscribe(subscriber)
+    assert subscriber.calls == []
+
+
+def test_trigger_calls_subscribers_on_trigger():
+    trigger = Trigger[str]()
+    a = CallableMock[str]()
+    b = CallableMock[str]()
+
+    trigger.subscribe(a)
+    trigger.subscribe(b)
+
+    trigger.trigger("hello")
+    assert a.calls == ["hello"]
+    assert b.calls == ["hello"]
+
+    trigger.trigger("world")
+    assert a.calls == ["hello", "world"]
+    assert b.calls == ["hello", "world"]
