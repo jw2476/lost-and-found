@@ -12,3 +12,4 @@ wheels/
 .ruff_cache
 
 .coverage
+/docs/source/_autosummary
