@@ -51,7 +51,8 @@ def test_replicator_seeds_model_from_table():
     new_app = AppModel(new_hierarchy, new_hierarchy.observable)
     new_items = new_app.items
 
-    # Setup second replication, this should be seeded with the newly created item
+    # Setup second replication, this should be seeded with the
+    # newly created item
     db.replicate_table_to(ItemsTable, new_items)
 
     assert len(new_items.items.value) == 1
@@ -81,7 +82,8 @@ def test_replicator_updates_table_on_change():
     new_app = AppModel(new_hierarchy, new_hierarchy.observable)
     new_items = new_app.items
 
-    # Setup second replication, this should be seeded with the newly updated item
+    # Setup second replication, this should be seeded with the
+    # newly updated item
     db.replicate_table_to(ItemsTable, new_items)
 
     assert len(new_items.items.value) == 1
