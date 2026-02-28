@@ -12,3 +12,9 @@ It can be installed [here](https://docs.astral.sh/uv/getting-started/installatio
 
 # Run flake8
 `uv run flake8 src/ --count --max-complexity=5 --statistics`
+
+# Build HTML documentation (must be in docs directory)
+`uv run make html`
+
+# Build PDF documentation (must be in docs directory)
+`uv run make latexpdf`
