@@ -1,0 +1,39 @@
+lost\_and\_found.state.search.SearchParams
+==========================================
+
+.. currentmodule:: lost_and_found.state.search
+
+.. autoclass:: SearchParams
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SearchParams.__init__
+      ~SearchParams.get
+      ~SearchParams.new
+      ~SearchParams.update_category
+      ~SearchParams.update_child
+      ~SearchParams.update_name
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SearchParams.name
+      ~SearchParams.category
+      ~SearchParams.id
+      ~SearchParams.children
+   
+   

@@ -1,0 +1,39 @@
+lost\_and\_found.state.entity.ListEntity
+========================================
+
+.. currentmodule:: lost_and_found.state.entity
+
+.. autoclass:: ListEntity
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ListEntity.__init__
+      ~ListEntity.append
+      ~ListEntity.get
+      ~ListEntity.new
+      ~ListEntity.remove_all
+      ~ListEntity.set
+      ~ListEntity.update_child
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ListEntity.items
+      ~ListEntity.id
+      ~ListEntity.children
+   
+   

@@ -1,0 +1,69 @@
+lost\_and\_found.ui package
+===========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   lost_and_found.ui.widgets
+
+Submodules
+----------
+
+lost\_and\_found.ui.add\_found\_item module
+-------------------------------------------
+
+.. automodule:: lost_and_found.ui.add_found_item
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.ui.add\_lost\_item module
+------------------------------------------
+
+.. automodule:: lost_and_found.ui.add_lost_item
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.ui.claim module
+--------------------------------
+
+.. automodule:: lost_and_found.ui.claim
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.ui.items module
+--------------------------------
+
+.. automodule:: lost_and_found.ui.items
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.ui.mark\_as\_found module
+------------------------------------------
+
+.. automodule:: lost_and_found.ui.mark_as_found
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.ui.search\_params module
+-----------------------------------------
+
+.. automodule:: lost_and_found.ui.search_params
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: lost_and_found.ui
+   :members:
+   :show-inheritance:
+   :undoc-members:

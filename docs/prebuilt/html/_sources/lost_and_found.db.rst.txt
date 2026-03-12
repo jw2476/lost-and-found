@@ -1,0 +1,45 @@
+lost\_and\_found.db package
+===========================
+
+Submodules
+----------
+
+lost\_and\_found.db.converters module
+-------------------------------------
+
+.. automodule:: lost_and_found.db.converters
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.db.database module
+-----------------------------------
+
+.. automodule:: lost_and_found.db.database
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.db.replicator module
+-------------------------------------
+
+.. automodule:: lost_and_found.db.replicator
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.db.tables module
+---------------------------------
+
+.. automodule:: lost_and_found.db.tables
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: lost_and_found.db
+   :members:
+   :show-inheritance:
+   :undoc-members:

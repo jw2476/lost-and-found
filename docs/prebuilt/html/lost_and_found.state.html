@@ -1,0 +1,1201 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lost_and_found.state package &mdash; Lost and Found 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Lost and Found
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">lost_and_found.state package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-lost_and_found.state.app">lost_and_found.state.app module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.app.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.app.App.items"><code class="docutils literal notranslate"><span class="pre">App.items</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.app.App.items_id"><code class="docutils literal notranslate"><span class="pre">App.items_id</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.app.App.new"><code class="docutils literal notranslate"><span class="pre">App.new()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.app.App.search_params"><code class="docutils literal notranslate"><span class="pre">App.search_params</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.app.App.search_params_id"><code class="docutils literal notranslate"><span class="pre">App.search_params_id</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.app.App.update_child"><code class="docutils literal notranslate"><span class="pre">App.update_child()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.state.entity">lost_and_found.state.entity module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Entity"><code class="docutils literal notranslate"><span class="pre">Entity</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Entity.children"><code class="docutils literal notranslate"><span class="pre">Entity.children</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Entity.get"><code class="docutils literal notranslate"><span class="pre">Entity.get()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Entity.id"><code class="docutils literal notranslate"><span class="pre">Entity.id</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Entity.update_child"><code class="docutils literal notranslate"><span class="pre">Entity.update_child()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.EntityId"><code class="docutils literal notranslate"><span class="pre">EntityId</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.entity.EntityId.id"><code class="docutils literal notranslate"><span class="pre">EntityId.id</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.EntityId.new"><code class="docutils literal notranslate"><span class="pre">EntityId.new()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy"><code class="docutils literal notranslate"><span class="pre">Hierarchy</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy.observable"><code class="docutils literal notranslate"><span class="pre">Hierarchy.observable</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy.root"><code class="docutils literal notranslate"><span class="pre">Hierarchy.root</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy.update"><code class="docutils literal notranslate"><span class="pre">Hierarchy.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.ListEntity"><code class="docutils literal notranslate"><span class="pre">ListEntity</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.entity.ListEntity.append"><code class="docutils literal notranslate"><span class="pre">ListEntity.append()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.ListEntity.items"><code class="docutils literal notranslate"><span class="pre">ListEntity.items</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.ListEntity.new"><code class="docutils literal notranslate"><span class="pre">ListEntity.new()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.ListEntity.remove_all"><code class="docutils literal notranslate"><span class="pre">ListEntity.remove_all()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.ListEntity.set"><code class="docutils literal notranslate"><span class="pre">ListEntity.set()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.entity.ListEntity.update_child"><code class="docutils literal notranslate"><span class="pre">ListEntity.update_child()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.state.item">lost_and_found.state.item module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.item.Category"><code class="docutils literal notranslate"><span class="pre">Category</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.item.Category.BOOKS"><code class="docutils literal notranslate"><span class="pre">Category.BOOKS</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Category.CLOTHING"><code class="docutils literal notranslate"><span class="pre">Category.CLOTHING</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Category.ELECTRONICS"><code class="docutils literal notranslate"><span class="pre">Category.ELECTRONICS</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item"><code class="docutils literal notranslate"><span class="pre">Item</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.category"><code class="docutils literal notranslate"><span class="pre">Item.category</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.claim"><code class="docutils literal notranslate"><span class="pre">Item.claim()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.claimed"><code class="docutils literal notranslate"><span class="pre">Item.claimed</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.create_found_item"><code class="docutils literal notranslate"><span class="pre">Item.create_found_item()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.create_lost_item"><code class="docutils literal notranslate"><span class="pre">Item.create_lost_item()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.finder_email"><code class="docutils literal notranslate"><span class="pre">Item.finder_email</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.found"><code class="docutils literal notranslate"><span class="pre">Item.found</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.location"><code class="docutils literal notranslate"><span class="pre">Item.location</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.lost"><code class="docutils literal notranslate"><span class="pre">Item.lost</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.mark_as_found"><code class="docutils literal notranslate"><span class="pre">Item.mark_as_found()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.name"><code class="docutils literal notranslate"><span class="pre">Item.name</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.owner_email"><code class="docutils literal notranslate"><span class="pre">Item.owner_email</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.item.Item.update_child"><code class="docutils literal notranslate"><span class="pre">Item.update_child()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.state.model">lost_and_found.state.model module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.model.AppModel"><code class="docutils literal notranslate"><span class="pre">AppModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.model.AppModel.items"><code class="docutils literal notranslate"><span class="pre">AppModel.items</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.model.AppModel.search_params"><code class="docutils literal notranslate"><span class="pre">AppModel.search_params</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.model.ItemsModel"><code class="docutils literal notranslate"><span class="pre">ItemsModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.model.ItemsModel.search"><code class="docutils literal notranslate"><span class="pre">ItemsModel.search()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.model.ListModel"><code class="docutils literal notranslate"><span class="pre">ListModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.model.ListModel.append"><code class="docutils literal notranslate"><span class="pre">ListModel.append()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.model.ListModel.items"><code class="docutils literal notranslate"><span class="pre">ListModel.items</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.model.ListModel.remove_all"><code class="docutils literal notranslate"><span class="pre">ListModel.remove_all()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.model.ListModel.set"><code class="docutils literal notranslate"><span class="pre">ListModel.set()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.model.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.model.Model.observe"><code class="docutils literal notranslate"><span class="pre">Model.observe()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.model.Model.property"><code class="docutils literal notranslate"><span class="pre">Model.property()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.model.Model.update"><code class="docutils literal notranslate"><span class="pre">Model.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.model.SearchParamsModel"><code class="docutils literal notranslate"><span class="pre">SearchParamsModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.model.SearchParamsModel.category"><code class="docutils literal notranslate"><span class="pre">SearchParamsModel.category</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.model.SearchParamsModel.name"><code class="docutils literal notranslate"><span class="pre">SearchParamsModel.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.state.search">lost_and_found.state.search module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.search.SearchParams"><code class="docutils literal notranslate"><span class="pre">SearchParams</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.search.SearchParams.category"><code class="docutils literal notranslate"><span class="pre">SearchParams.category</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.search.SearchParams.name"><code class="docutils literal notranslate"><span class="pre">SearchParams.name</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.search.SearchParams.new"><code class="docutils literal notranslate"><span class="pre">SearchParams.new()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.search.SearchParams.update_category"><code class="docutils literal notranslate"><span class="pre">SearchParams.update_category()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.search.SearchParams.update_child"><code class="docutils literal notranslate"><span class="pre">SearchParams.update_child()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.search.SearchParams.update_name"><code class="docutils literal notranslate"><span class="pre">SearchParams.update_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.state">Module contents</a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.App.items"><code class="docutils literal notranslate"><span class="pre">App.items</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.App.items_id"><code class="docutils literal notranslate"><span class="pre">App.items_id</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.App.new"><code class="docutils literal notranslate"><span class="pre">App.new()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.App.search_params"><code class="docutils literal notranslate"><span class="pre">App.search_params</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.App.search_params_id"><code class="docutils literal notranslate"><span class="pre">App.search_params_id</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.App.update_child"><code class="docutils literal notranslate"><span class="pre">App.update_child()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.AppModel"><code class="docutils literal notranslate"><span class="pre">AppModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.AppModel.items"><code class="docutils literal notranslate"><span class="pre">AppModel.items</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.AppModel.search_params"><code class="docutils literal notranslate"><span class="pre">AppModel.search_params</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.Category"><code class="docutils literal notranslate"><span class="pre">Category</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.Category.BOOKS"><code class="docutils literal notranslate"><span class="pre">Category.BOOKS</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Category.CLOTHING"><code class="docutils literal notranslate"><span class="pre">Category.CLOTHING</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Category.ELECTRONICS"><code class="docutils literal notranslate"><span class="pre">Category.ELECTRONICS</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.Entity"><code class="docutils literal notranslate"><span class="pre">Entity</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.Entity.children"><code class="docutils literal notranslate"><span class="pre">Entity.children</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Entity.get"><code class="docutils literal notranslate"><span class="pre">Entity.get()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Entity.id"><code class="docutils literal notranslate"><span class="pre">Entity.id</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Entity.update_child"><code class="docutils literal notranslate"><span class="pre">Entity.update_child()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.EntityId"><code class="docutils literal notranslate"><span class="pre">EntityId</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.EntityId.id"><code class="docutils literal notranslate"><span class="pre">EntityId.id</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.EntityId.new"><code class="docutils literal notranslate"><span class="pre">EntityId.new()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.Hierarchy"><code class="docutils literal notranslate"><span class="pre">Hierarchy</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.Hierarchy.observable"><code class="docutils literal notranslate"><span class="pre">Hierarchy.observable</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Hierarchy.root"><code class="docutils literal notranslate"><span class="pre">Hierarchy.root</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Hierarchy.update"><code class="docutils literal notranslate"><span class="pre">Hierarchy.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.Item"><code class="docutils literal notranslate"><span class="pre">Item</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.Item.category"><code class="docutils literal notranslate"><span class="pre">Item.category</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.claim"><code class="docutils literal notranslate"><span class="pre">Item.claim()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.claimed"><code class="docutils literal notranslate"><span class="pre">Item.claimed</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.create_found_item"><code class="docutils literal notranslate"><span class="pre">Item.create_found_item()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.create_lost_item"><code class="docutils literal notranslate"><span class="pre">Item.create_lost_item()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.finder_email"><code class="docutils literal notranslate"><span class="pre">Item.finder_email</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.found"><code class="docutils literal notranslate"><span class="pre">Item.found</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.location"><code class="docutils literal notranslate"><span class="pre">Item.location</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.lost"><code class="docutils literal notranslate"><span class="pre">Item.lost</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.mark_as_found"><code class="docutils literal notranslate"><span class="pre">Item.mark_as_found()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.name"><code class="docutils literal notranslate"><span class="pre">Item.name</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.owner_email"><code class="docutils literal notranslate"><span class="pre">Item.owner_email</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.Item.update_child"><code class="docutils literal notranslate"><span class="pre">Item.update_child()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.ItemsModel"><code class="docutils literal notranslate"><span class="pre">ItemsModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.ItemsModel.search"><code class="docutils literal notranslate"><span class="pre">ItemsModel.search()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.ListEntity"><code class="docutils literal notranslate"><span class="pre">ListEntity</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.ListEntity.append"><code class="docutils literal notranslate"><span class="pre">ListEntity.append()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.ListEntity.items"><code class="docutils literal notranslate"><span class="pre">ListEntity.items</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.ListEntity.new"><code class="docutils literal notranslate"><span class="pre">ListEntity.new()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.ListEntity.remove_all"><code class="docutils literal notranslate"><span class="pre">ListEntity.remove_all()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.ListEntity.set"><code class="docutils literal notranslate"><span class="pre">ListEntity.set()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.ListEntity.update_child"><code class="docutils literal notranslate"><span class="pre">ListEntity.update_child()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.ListModel"><code class="docutils literal notranslate"><span class="pre">ListModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.ListModel.append"><code class="docutils literal notranslate"><span class="pre">ListModel.append()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.ListModel.items"><code class="docutils literal notranslate"><span class="pre">ListModel.items</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.ListModel.remove_all"><code class="docutils literal notranslate"><span class="pre">ListModel.remove_all()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.ListModel.set"><code class="docutils literal notranslate"><span class="pre">ListModel.set()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParams"><code class="docutils literal notranslate"><span class="pre">SearchParams</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParams.category"><code class="docutils literal notranslate"><span class="pre">SearchParams.category</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParams.name"><code class="docutils literal notranslate"><span class="pre">SearchParams.name</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParams.new"><code class="docutils literal notranslate"><span class="pre">SearchParams.new()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParams.update_category"><code class="docutils literal notranslate"><span class="pre">SearchParams.update_category()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParams.update_child"><code class="docutils literal notranslate"><span class="pre">SearchParams.update_child()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParams.update_name"><code class="docutils literal notranslate"><span class="pre">SearchParams.update_name()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParamsModel"><code class="docutils literal notranslate"><span class="pre">SearchParamsModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParamsModel.category"><code class="docutils literal notranslate"><span class="pre">SearchParamsModel.category</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.state.SearchParamsModel.name"><code class="docutils literal notranslate"><span class="pre">SearchParamsModel.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lost and Found</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">lost_and_found.state package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lost_and_found.state.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lost-and-found-state-package">
+<h1>lost_and_found.state package<a class="headerlink" href="#lost-and-found-state-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lost_and_found.state.app">
+<span id="lost-and-found-state-app-module"></span><h2>lost_and_found.state.app module<a class="headerlink" href="#module-lost_and_found.state.app" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.app.App">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.app.</span></span><span class="sig-name descname"><span class="pre">App</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_params_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.app.App" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a></p>
+<p>Root <cite>Entity</cite> for the application state that contains key children.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.app.App.items">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">items</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.app.App.items" title="Link to this definition"></a></dt>
+<dd><p>Return the <cite>ListEntity</cite> that stores <cite>Item</cite> instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.app.App.items_id">
+<span class="sig-name descname"><span class="pre">items_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span><a class="headerlink" href="#lost_and_found.state.app.App.items_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.app.App.new">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.app.App" title="lost_and_found.state.app.App"><span class="pre">App</span></a></span></span><a class="headerlink" href="#lost_and_found.state.app.App.new" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.app.App.search_params">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">search_params</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span><a class="headerlink" href="#lost_and_found.state.app.App.search_params" title="Link to this definition"></a></dt>
+<dd><p>Return the <cite>SearchParams</cite> entity used for filtering items.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.app.App.search_params_id">
+<span class="sig-name descname"><span class="pre">search_params_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span><a class="headerlink" href="#lost_and_found.state.app.App.search_params_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.app.App.update_child">
+<span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.app.App" title="lost_and_found.state.app.App"><span class="pre">App</span></a></span></span><a class="headerlink" href="#lost_and_found.state.app.App.update_child" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>App</cite> with <cite>child</cite> replaced among its children.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.state.entity">
+<span id="lost-and-found-state-entity-module"></span><h2>lost_and_found.state.entity module<a class="headerlink" href="#module-lost_and_found.state.entity" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Entity">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.entity.</span></span><span class="sig-name descname"><span class="pre">Entity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.entity.Entity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for state entities.</p>
+<p>Entities are immutable dataclasses containing an <cite>id</cite> and zero or more
+children. Subclasses must implement <cite>update_child</cite> to return a new
+instance with a replaced child entity.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Entity.children">
+<span class="sig-name descname"><span class="pre">children</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.entity.Entity.children" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Entity.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.entity.Entity.get" title="Link to this definition"></a></dt>
+<dd><p>Recursively find an entity with <cite>id</cite> in this subtree, or <cite>None</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Entity.id">
+<span class="sig-name descname"><span class="pre">id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span><a class="headerlink" href="#lost_and_found.state.entity.Entity.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Entity.update_child">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></span><a class="headerlink" href="#lost_and_found.state.entity.Entity.update_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.EntityId">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.entity.</span></span><span class="sig-name descname"><span class="pre">EntityId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.entity.EntityId" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Lightweight wrapper around a UUID used to identify entities.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.EntityId.id">
+<span class="sig-name descname"><span class="pre">id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">UUID</span></span><a class="headerlink" href="#lost_and_found.state.entity.EntityId.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.EntityId.new">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></span><a class="headerlink" href="#lost_and_found.state.entity.EntityId.new" title="Link to this definition"></a></dt>
+<dd><p>Create a new <cite>EntityId</cite> with a random UUID.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Hierarchy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.entity.</span></span><span class="sig-name descname"><span class="pre">Hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.entity.Hierarchy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Wrap an entity tree and provide atomic update operations.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Hierarchy.observable">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">observable</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.entity.Hierarchy.observable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Hierarchy.root">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></span><a class="headerlink" href="#lost_and_found.state.entity.Hierarchy.root" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.Hierarchy.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.entity.Hierarchy.update" title="Link to this definition"></a></dt>
+<dd><p>Apply an update to the tree by replacing the matching entity.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.ListEntity">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.entity.</span></span><span class="sig-name descname"><span class="pre">ListEntity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ImmutableList(value=())</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.entity.ListEntity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An <cite>Entity</cite> that holds an ordered list of child entities in <cite>items</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.ListEntity.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.entity.ListEntity.append" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>ListEntity</cite> with <cite>entity</cite> appended to <cite>items</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.ListEntity.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ImmutableList(value=())</span></span><a class="headerlink" href="#lost_and_found.state.entity.ListEntity.items" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.ListEntity.new">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.entity.ListEntity.new" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.ListEntity.remove_all">
+<span class="sig-name descname"><span class="pre">remove_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_remove</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.entity.ListEntity.remove_all" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>ListEntity</cite> with <cite>to_remove</cite> removed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.ListEntity.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.entity.ListEntity.set" title="Link to this definition"></a></dt>
+<dd><p>Replace the <cite>items</cite> collection and return a new <cite>ListEntity</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.entity.ListEntity.update_child">
+<span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.entity.ListEntity.update_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.state.item">
+<span id="lost-and-found-state-item-module"></span><h2>lost_and_found.state.item module<a class="headerlink" href="#module-lost_and_found.state.item" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Category">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.item.</span></span><span class="sig-name descname"><span class="pre">Category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.item.Category" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Category.BOOKS">
+<span class="sig-name descname"><span class="pre">BOOKS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Books'</span></span><a class="headerlink" href="#lost_and_found.state.item.Category.BOOKS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Category.CLOTHING">
+<span class="sig-name descname"><span class="pre">CLOTHING</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Clothing'</span></span><a class="headerlink" href="#lost_and_found.state.item.Category.CLOTHING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Category.ELECTRONICS">
+<span class="sig-name descname"><span class="pre">ELECTRONICS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Electronics'</span></span><a class="headerlink" href="#lost_and_found.state.item.Category.ELECTRONICS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.item.</span></span><span class="sig-name descname"><span class="pre">Item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">found</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">claimed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finder_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.item.Item" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a></p>
+<p>Immutable representation of an item in the system.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.category">
+<span class="sig-name descname"><span class="pre">category</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span><a class="headerlink" href="#lost_and_found.state.item.Item.category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.claim">
+<span class="sig-name descname"><span class="pre">claim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">claimed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.item.Item.claim" title="Link to this definition"></a></dt>
+<dd><p>Claim a found item. Item must have been found and not claimed already.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – The item to claim</p></li>
+<li><p><strong>claimed</strong> (<em>datetime</em>) – The time the item was claimed</p></li>
+<li><p><strong>owner_email</strong> (<em>str</em>) – The email of the person claiming the item</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new <cite>Item</cite> instance representing the claimed item</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item">Item</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.claimed">
+<span class="sig-name descname"><span class="pre">claimed</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.item.Item.claimed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.create_found_item">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create_found_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">found</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finder_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.item.Item.create_found_item" title="Link to this definition"></a></dt>
+<dd><p>Create a new found item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the item</p></li>
+<li><p><strong>category</strong> (<a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><em>Category</em></a>) – The category of the item</p></li>
+<li><p><strong>found</strong> (<em>datetime</em>) – The time the item was found</p></li>
+<li><p><strong>location</strong> (<em>str</em>) – The location where the item was found</p></li>
+<li><p><strong>finder_email</strong> (<em>str</em>) – The email of the person who found the item</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new <cite>Item</cite> instance representing the found item</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item">Item</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.create_lost_item">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create_lost_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.item.Item.create_lost_item" title="Link to this definition"></a></dt>
+<dd><p>Create a new lost item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the item</p></li>
+<li><p><strong>category</strong> (<a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><em>Category</em></a>) – The category of the item</p></li>
+<li><p><strong>lost</strong> (<em>datetime</em>) – The time the item was lost</p></li>
+<li><p><strong>owner_email</strong> (<em>str</em>) – The email of the item’s owner</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new <cite>Item</cite> instance representing the lost item</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item">Item</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.finder_email">
+<span class="sig-name descname"><span class="pre">finder_email</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.item.Item.finder_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.found">
+<span class="sig-name descname"><span class="pre">found</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.item.Item.found" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.location">
+<span class="sig-name descname"><span class="pre">location</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.item.Item.location" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.lost">
+<span class="sig-name descname"><span class="pre">lost</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><a class="headerlink" href="#lost_and_found.state.item.Item.lost" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.mark_as_found">
+<span class="sig-name descname"><span class="pre">mark_as_found</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">found</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finder_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.item.Item.mark_as_found" title="Link to this definition"></a></dt>
+<dd><p>Mark an item as found. Item must not have been found already.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – The item to mark as found</p></li>
+<li><p><strong>found</strong> (<em>datetime</em>) – The time the item was found</p></li>
+<li><p><strong>location</strong> (<em>str</em>) – The location where the item was found</p></li>
+<li><p><strong>finder_email</strong> (<em>str</em>) – The email of the person who found the item</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new <cite>Item</cite> instance representing the found item</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item">Item</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#lost_and_found.state.item.Item.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.owner_email">
+<span class="sig-name descname"><span class="pre">owner_email</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.item.Item.owner_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.item.Item.update_child">
+<span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.item.Item.update_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.state.model">
+<span id="lost-and-found-state-model-module"></span><h2>lost_and_found.state.model module<a class="headerlink" href="#module-lost_and_found.state.model" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.model.AppModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.model.</span></span><span class="sig-name descname"><span class="pre">AppModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.model.AppModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.model.Model" title="lost_and_found.state.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>[<a class="reference internal" href="#lost_and_found.state.app.App" title="lost_and_found.state.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a>]</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.model.AppModel.items">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">items</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.model.ItemsModel" title="lost_and_found.state.model.ItemsModel"><span class="pre">ItemsModel</span></a></span><a class="headerlink" href="#lost_and_found.state.model.AppModel.items" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.model.AppModel.search_params">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">search_params</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.model.SearchParamsModel" title="lost_and_found.state.model.SearchParamsModel"><span class="pre">SearchParamsModel</span></a></span><a class="headerlink" href="#lost_and_found.state.model.AppModel.search_params" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.model.ItemsModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.model.</span></span><span class="sig-name descname"><span class="pre">ItemsModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.model.ItemsModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.model.ListModel" title="lost_and_found.state.model.ListModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ListModel</span></code></a>[<a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><code class="xref py py-class docutils literal notranslate"><span class="pre">Item</span></code></a>]</p>
+<p>Model for <cite>Item</cite> collections including a searchable view.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.model.ItemsModel.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.model.SearchParamsModel" title="lost_and_found.state.model.SearchParamsModel"><span class="pre">SearchParamsModel</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.model.ItemsModel.search" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.model.ListModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.model.</span></span><span class="sig-name descname"><span class="pre">ListModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.model.ListModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.model.Model" title="lost_and_found.state.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>[<a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">ListEntity</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Model helpers for list-like entities exposing <cite>items</cite> and mutations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.model.ListModel.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.model.ListModel.append" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.model.ListModel.items">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">items</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.model.ListModel.items" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.model.ListModel.remove_all">
+<span class="sig-name descname"><span class="pre">remove_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_remove</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.model.ListModel.remove_all" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.model.ListModel.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.model.ListModel.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.model.Model">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.model.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.model.Model" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Base model providing property and observe helpers for an entity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.model.Model.observe">
+<span class="sig-name descname"><span class="pre">observe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">getter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></span><a class="headerlink" href="#lost_and_found.state.model.Model.observe" title="Link to this definition"></a></dt>
+<dd><p>Return a <cite>ValueObservable</cite> view for a derived value on
+the entity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.model.Model.property">
+<span class="sig-name descname"><span class="pre">property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">getter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TValue</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.Property" title="lost_and_found.core.observable.Property"><span class="pre">Property</span></a></span></span><a class="headerlink" href="#lost_and_found.state.model.Model.property" title="Link to this definition"></a></dt>
+<dd><p>Expose a <cite>Property</cite> backed by a getter/setter pair on the entity.</p>
+<p>The returned <cite>Property</cite> is kept in sync with the underlying entity and
+updates propagate back into the hierarchy via <cite>setter</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.model.Model.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.model.Model.update" title="Link to this definition"></a></dt>
+<dd><p>Apply a transformation to the current entity and update the
+hierarchy.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.model.SearchParamsModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.model.</span></span><span class="sig-name descname"><span class="pre">SearchParamsModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.model.SearchParamsModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.model.Model" title="lost_and_found.state.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>[<a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SearchParams</span></code></a>]</p>
+<p>Model exposing <cite>SearchParams</cite> fields as properties.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.model.SearchParamsModel.category">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">category</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.Property" title="lost_and_found.core.observable.Property"><span class="pre">Property</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.model.SearchParamsModel.category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.model.SearchParamsModel.name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.Property" title="lost_and_found.core.observable.Property"><span class="pre">Property</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.model.SearchParamsModel.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.state.search">
+<span id="lost-and-found-state-search-module"></span><h2>lost_and_found.state.search module<a class="headerlink" href="#module-lost_and_found.state.search" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.search.SearchParams">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.search.</span></span><span class="sig-name descname"><span class="pre">SearchParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.search.SearchParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a></p>
+<p>Entity storing the current search <cite>name</cite> and optional <cite>category</cite>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.search.SearchParams.category">
+<span class="sig-name descname"><span class="pre">category</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.search.SearchParams.category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.search.SearchParams.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#lost_and_found.state.search.SearchParams.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.search.SearchParams.new">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span></span><a class="headerlink" href="#lost_and_found.state.search.SearchParams.new" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.search.SearchParams.update_category">
+<span class="sig-name descname"><span class="pre">update_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span></span><a class="headerlink" href="#lost_and_found.state.search.SearchParams.update_category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.search.SearchParams.update_child">
+<span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span></span><a class="headerlink" href="#lost_and_found.state.search.SearchParams.update_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.search.SearchParams.update_name">
+<span class="sig-name descname"><span class="pre">update_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span></span><a class="headerlink" href="#lost_and_found.state.search.SearchParams.update_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.state">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lost_and_found.state" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.App">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">App</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_params_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.App" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a></p>
+<p>Root <cite>Entity</cite> for the application state that contains key children.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.App.items">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">items</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.App.items" title="Link to this definition"></a></dt>
+<dd><p>Return the <cite>ListEntity</cite> that stores <cite>Item</cite> instances.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.App.items_id">
+<span class="sig-name descname"><span class="pre">items_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span><a class="headerlink" href="#lost_and_found.state.App.items_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.App.new">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.app.App" title="lost_and_found.state.app.App"><span class="pre">App</span></a></span></span><a class="headerlink" href="#lost_and_found.state.App.new" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.App.search_params">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">search_params</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span><a class="headerlink" href="#lost_and_found.state.App.search_params" title="Link to this definition"></a></dt>
+<dd><p>Return the <cite>SearchParams</cite> entity used for filtering items.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.App.search_params_id">
+<span class="sig-name descname"><span class="pre">search_params_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span><a class="headerlink" href="#lost_and_found.state.App.search_params_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.App.update_child">
+<span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.app.App" title="lost_and_found.state.app.App"><span class="pre">App</span></a></span></span><a class="headerlink" href="#lost_and_found.state.App.update_child" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>App</cite> with <cite>child</cite> replaced among its children.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.AppModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">AppModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.AppModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.model.Model" title="lost_and_found.state.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>[<a class="reference internal" href="#lost_and_found.state.app.App" title="lost_and_found.state.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a>]</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.AppModel.items">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">items</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.model.ItemsModel" title="lost_and_found.state.model.ItemsModel"><span class="pre">ItemsModel</span></a></span><a class="headerlink" href="#lost_and_found.state.AppModel.items" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.AppModel.search_params">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">search_params</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.model.SearchParamsModel" title="lost_and_found.state.model.SearchParamsModel"><span class="pre">SearchParamsModel</span></a></span><a class="headerlink" href="#lost_and_found.state.AppModel.search_params" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.Category">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">Category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.Category" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Category.BOOKS">
+<span class="sig-name descname"><span class="pre">BOOKS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Books'</span></span><a class="headerlink" href="#lost_and_found.state.Category.BOOKS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Category.CLOTHING">
+<span class="sig-name descname"><span class="pre">CLOTHING</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Clothing'</span></span><a class="headerlink" href="#lost_and_found.state.Category.CLOTHING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Category.ELECTRONICS">
+<span class="sig-name descname"><span class="pre">ELECTRONICS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Electronics'</span></span><a class="headerlink" href="#lost_and_found.state.Category.ELECTRONICS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.Entity">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">Entity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.Entity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for state entities.</p>
+<p>Entities are immutable dataclasses containing an <cite>id</cite> and zero or more
+children. Subclasses must implement <cite>update_child</cite> to return a new
+instance with a replaced child entity.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Entity.children">
+<span class="sig-name descname"><span class="pre">children</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.Entity.children" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.Entity.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.Entity.get" title="Link to this definition"></a></dt>
+<dd><p>Recursively find an entity with <cite>id</cite> in this subtree, or <cite>None</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Entity.id">
+<span class="sig-name descname"><span class="pre">id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span><a class="headerlink" href="#lost_and_found.state.Entity.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.Entity.update_child">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></span><a class="headerlink" href="#lost_and_found.state.Entity.update_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.EntityId">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">EntityId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.EntityId" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Lightweight wrapper around a UUID used to identify entities.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.EntityId.id">
+<span class="sig-name descname"><span class="pre">id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">UUID</span></span><a class="headerlink" href="#lost_and_found.state.EntityId.id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.EntityId.new">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></span><a class="headerlink" href="#lost_and_found.state.EntityId.new" title="Link to this definition"></a></dt>
+<dd><p>Create a new <cite>EntityId</cite> with a random UUID.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.Hierarchy">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">Hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.Hierarchy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Wrap an entity tree and provide atomic update operations.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.Hierarchy.observable">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">observable</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.Hierarchy.observable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.Hierarchy.root">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></span><a class="headerlink" href="#lost_and_found.state.Hierarchy.root" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.Hierarchy.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.Hierarchy.update" title="Link to this definition"></a></dt>
+<dd><p>Apply an update to the tree by replacing the matching entity.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.Item">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">Item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">found</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">claimed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finder_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.Item" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a></p>
+<p>Immutable representation of an item in the system.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.category">
+<span class="sig-name descname"><span class="pre">category</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span><a class="headerlink" href="#lost_and_found.state.Item.category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.claim">
+<span class="sig-name descname"><span class="pre">claim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">claimed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.Item.claim" title="Link to this definition"></a></dt>
+<dd><p>Claim a found item. Item must have been found and not claimed already.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – The item to claim</p></li>
+<li><p><strong>claimed</strong> (<em>datetime</em>) – The time the item was claimed</p></li>
+<li><p><strong>owner_email</strong> (<em>str</em>) – The email of the person claiming the item</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new <cite>Item</cite> instance representing the claimed item</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lost_and_found.state.Item" title="lost_and_found.state.Item">Item</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.claimed">
+<span class="sig-name descname"><span class="pre">claimed</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.Item.claimed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.create_found_item">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create_found_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">found</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finder_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.Item.create_found_item" title="Link to this definition"></a></dt>
+<dd><p>Create a new found item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the item</p></li>
+<li><p><strong>category</strong> (<a class="reference internal" href="#lost_and_found.state.Category" title="lost_and_found.state.Category"><em>Category</em></a>) – The category of the item</p></li>
+<li><p><strong>found</strong> (<em>datetime</em>) – The time the item was found</p></li>
+<li><p><strong>location</strong> (<em>str</em>) – The location where the item was found</p></li>
+<li><p><strong>finder_email</strong> (<em>str</em>) – The email of the person who found the item</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new <cite>Item</cite> instance representing the found item</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lost_and_found.state.Item" title="lost_and_found.state.Item">Item</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.create_lost_item">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create_lost_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">lost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.Item.create_lost_item" title="Link to this definition"></a></dt>
+<dd><p>Create a new lost item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the item</p></li>
+<li><p><strong>category</strong> (<a class="reference internal" href="#lost_and_found.state.Category" title="lost_and_found.state.Category"><em>Category</em></a>) – The category of the item</p></li>
+<li><p><strong>lost</strong> (<em>datetime</em>) – The time the item was lost</p></li>
+<li><p><strong>owner_email</strong> (<em>str</em>) – The email of the item’s owner</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new <cite>Item</cite> instance representing the lost item</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lost_and_found.state.Item" title="lost_and_found.state.Item">Item</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.finder_email">
+<span class="sig-name descname"><span class="pre">finder_email</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.Item.finder_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.found">
+<span class="sig-name descname"><span class="pre">found</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.Item.found" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.location">
+<span class="sig-name descname"><span class="pre">location</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.Item.location" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.lost">
+<span class="sig-name descname"><span class="pre">lost</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></span><a class="headerlink" href="#lost_and_found.state.Item.lost" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.mark_as_found">
+<span class="sig-name descname"><span class="pre">mark_as_found</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">found</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">finder_email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.Item.mark_as_found" title="Link to this definition"></a></dt>
+<dd><p>Mark an item as found. Item must not have been found already.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – The item to mark as found</p></li>
+<li><p><strong>found</strong> (<em>datetime</em>) – The time the item was found</p></li>
+<li><p><strong>location</strong> (<em>str</em>) – The location where the item was found</p></li>
+<li><p><strong>finder_email</strong> (<em>str</em>) – The email of the person who found the item</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new <cite>Item</cite> instance representing the found item</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lost_and_found.state.Item" title="lost_and_found.state.Item">Item</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#lost_and_found.state.Item.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.owner_email">
+<span class="sig-name descname"><span class="pre">owner_email</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.Item.owner_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.Item.update_child">
+<span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.state.Item.update_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.ItemsModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">ItemsModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.ItemsModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.model.ListModel" title="lost_and_found.state.model.ListModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ListModel</span></code></a>[<a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><code class="xref py py-class docutils literal notranslate"><span class="pre">Item</span></code></a>]</p>
+<p>Model for <cite>Item</cite> collections including a searchable view.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ItemsModel.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.model.SearchParamsModel" title="lost_and_found.state.model.SearchParamsModel"><span class="pre">SearchParamsModel</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.ItemsModel.search" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.ListEntity">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">ListEntity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.EntityId" title="lost_and_found.state.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.Entity" title="lost_and_found.state.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ImmutableList(value=())</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.ListEntity" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An <cite>Entity</cite> that holds an ordered list of child entities in <cite>items</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ListEntity.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.ListEntity" title="lost_and_found.state.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.ListEntity.append" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>ListEntity</cite> with <cite>entity</cite> appended to <cite>items</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.ListEntity.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">ImmutableList(value=())</span></span><a class="headerlink" href="#lost_and_found.state.ListEntity.items" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ListEntity.new">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.ListEntity" title="lost_and_found.state.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.ListEntity.new" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ListEntity.remove_all">
+<span class="sig-name descname"><span class="pre">remove_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_remove</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.ListEntity" title="lost_and_found.state.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.ListEntity.remove_all" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>ListEntity</cite> with <cite>to_remove</cite> removed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ListEntity.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.ListEntity" title="lost_and_found.state.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.ListEntity.set" title="Link to this definition"></a></dt>
+<dd><p>Replace the <cite>items</cite> collection and return a new <cite>ListEntity</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ListEntity.update_child">
+<span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.Entity" title="lost_and_found.state.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.ListEntity" title="lost_and_found.state.ListEntity"><span class="pre">ListEntity</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.state.ListEntity.update_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.ListModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">ListModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.ListModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.model.Model" title="lost_and_found.state.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>[<a class="reference internal" href="#lost_and_found.state.entity.ListEntity" title="lost_and_found.state.entity.ListEntity"><code class="xref py py-class docutils literal notranslate"><span class="pre">ListEntity</span></code></a>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Model helpers for list-like entities exposing <cite>items</cite> and mutations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ListModel.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.ListModel.append" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.ListModel.items">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">items</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.ListModel.items" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ListModel.remove_all">
+<span class="sig-name descname"><span class="pre">remove_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_remove</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.ListModel.remove_all" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.ListModel.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.state.ListModel.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParams">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">SearchParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.SearchParams" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></a></p>
+<p>Entity storing the current search <cite>name</cite> and optional <cite>category</cite>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParams.category">
+<span class="sig-name descname"><span class="pre">category</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#lost_and_found.state.SearchParams.category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParams.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#lost_and_found.state.SearchParams.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParams.new">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span></span><a class="headerlink" href="#lost_and_found.state.SearchParams.new" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParams.update_category">
+<span class="sig-name descname"><span class="pre">update_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span></span><a class="headerlink" href="#lost_and_found.state.SearchParams.update_category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParams.update_child">
+<span class="sig-name descname"><span class="pre">update_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span></span><a class="headerlink" href="#lost_and_found.state.SearchParams.update_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParams.update_name">
+<span class="sig-name descname"><span class="pre">update_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><span class="pre">SearchParams</span></a></span></span><a class="headerlink" href="#lost_and_found.state.SearchParams.update_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParamsModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.state.</span></span><span class="sig-name descname"><span class="pre">SearchParamsModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.state.SearchParamsModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.state.model.Model" title="lost_and_found.state.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>[<a class="reference internal" href="#lost_and_found.state.search.SearchParams" title="lost_and_found.state.search.SearchParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SearchParams</span></code></a>]</p>
+<p>Model exposing <cite>SearchParams</cite> fields as properties.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParamsModel.category">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">category</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.Property" title="lost_and_found.core.observable.Property"><span class="pre">Property</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.SearchParamsModel.category" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.state.SearchParamsModel.name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.observable.Property" title="lost_and_found.core.observable.Property"><span class="pre">Property</span></a><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#lost_and_found.state.SearchParamsModel.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Mary Poppins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

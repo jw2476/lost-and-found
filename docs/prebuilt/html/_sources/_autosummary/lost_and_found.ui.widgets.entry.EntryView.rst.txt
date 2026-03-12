@@ -1,0 +1,26 @@
+lost\_and\_found.ui.widgets.entry.EntryView
+===========================================
+
+.. currentmodule:: lost_and_found.ui.widgets.entry
+
+.. autoclass:: EntryView
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EntryView.__init__
+      ~EntryView.draw
+   
+   
+
+   
+   
+   

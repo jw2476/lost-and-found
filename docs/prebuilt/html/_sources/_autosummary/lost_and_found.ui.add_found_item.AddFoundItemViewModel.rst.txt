@@ -1,0 +1,28 @@
+lost\_and\_found.ui.add\_found\_item.AddFoundItemViewModel
+==========================================================
+
+.. currentmodule:: lost_and_found.ui.add_found_item
+
+.. autoclass:: AddFoundItemViewModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AddFoundItemViewModel.__init__
+      ~AddFoundItemViewModel.apply
+      ~AddFoundItemViewModel.draw
+      ~AddFoundItemViewModel.validate
+   
+   
+
+   
+   
+   

@@ -1,0 +1,32 @@
+lost\_and\_found.ui.widgets.base
+================================
+
+.. automodule:: lost_and_found.ui.widgets.base
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      View
+      ViewModel
+   
+   
+
+   
+   
+   
+
+
+

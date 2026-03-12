@@ -1,0 +1,28 @@
+lost\_and\_found.db.database.InMemoryDatabase
+=============================================
+
+.. currentmodule:: lost_and_found.db.database
+
+.. autoclass:: InMemoryDatabase
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~InMemoryDatabase.__init__
+      ~InMemoryDatabase.add_table
+      ~InMemoryDatabase.register_converter
+      ~InMemoryDatabase.replicate_table_to
+   
+   
+
+   
+   
+   

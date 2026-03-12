@@ -1,0 +1,33 @@
+lost\_and\_found.core
+=====================
+
+.. automodule:: lost_and_found.core
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst               
+   :recursive:
+
+   immutable
+   observable
+

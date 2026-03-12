@@ -1,0 +1,39 @@
+lost\_and\_found.db.tables.ItemsTable
+=====================================
+
+.. currentmodule:: lost_and_found.db.tables
+
+.. autoclass:: ItemsTable
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ItemsTable.__init__
+      ~ItemsTable.create_table
+      ~ItemsTable.create_table_query
+      ~ItemsTable.delete
+      ~ItemsTable.delete_query
+      ~ItemsTable.from_row
+      ~ItemsTable.id
+      ~ItemsTable.insert
+      ~ItemsTable.insert_query
+      ~ItemsTable.pk
+      ~ItemsTable.select_all
+      ~ItemsTable.select_all_query
+      ~ItemsTable.to_row
+      ~ItemsTable.update
+      ~ItemsTable.update_query
+   
+   
+
+   
+   
+   

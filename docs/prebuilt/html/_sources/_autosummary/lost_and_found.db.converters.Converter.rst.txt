@@ -1,0 +1,28 @@
+lost\_and\_found.db.converters.Converter
+========================================
+
+.. currentmodule:: lost_and_found.db.converters
+
+.. autoclass:: Converter
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Converter.__init__
+      ~Converter.from_bytes
+      ~Converter.to_str
+      ~Converter.type
+   
+   
+
+   
+   
+   

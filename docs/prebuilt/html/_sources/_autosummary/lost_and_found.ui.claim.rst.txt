@@ -1,0 +1,31 @@
+lost\_and\_found.ui.claim
+=========================
+
+.. automodule:: lost_and_found.ui.claim
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      ClaimItemsViewModel
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,26 @@
+lost\_and\_found.ui.widgets.base.ViewModel
+==========================================
+
+.. currentmodule:: lost_and_found.ui.widgets.base
+
+.. autoclass:: ViewModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ViewModel.__init__
+      ~ViewModel.draw
+   
+   
+
+   
+   
+   

@@ -4,9 +4,8 @@ This module wires smaller view-model widgets into the top-level
 `ItemsViewModel` used by the UI to present and operate on `Item` entities.
 """
 
-from lost_and_found.ui.claim import ClaimItemsViewModel
-
 from ..state import ItemsModel, SearchParamsModel
+from ..ui.claim import ClaimItemsViewModel
 from .add_found_item import AddFoundItemViewModel
 from .add_lost_item import AddLostItemViewModel
 from .mark_as_found import MarkItemsAsFoundViewModel

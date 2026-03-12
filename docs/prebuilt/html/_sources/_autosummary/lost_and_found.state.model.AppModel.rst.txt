@@ -1,0 +1,35 @@
+lost\_and\_found.state.model.AppModel
+=====================================
+
+.. currentmodule:: lost_and_found.state.model
+
+.. autoclass:: AppModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AppModel.__init__
+      ~AppModel.observe
+      ~AppModel.property
+      ~AppModel.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~AppModel.items
+      ~AppModel.search_params
+   
+   

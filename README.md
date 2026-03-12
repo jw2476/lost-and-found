@@ -1,20 +1,28 @@
 A lost and found desktop app for ECM2429
 
-# uv
-[uv](https://docs.astral.sh/uv/) is used to manage dependencies and the virtual environment.
-It can be installed [here](https://docs.astral.sh/uv/getting-started/installation/#pypi).
+# Install the dependencies
+`pip install -r requirements.txt`
 
-# Run the app
-`uv run lost-and-found`
+# Install the app (needed to build documentation)
+`pip install .`
 
-# Run the tests
-`uv run pytest --cov=. src/tests/`
+# Run the app (must be in the src directory)
+`python -m lost_and_found`
 
-# Run flake8
-`uv run flake8 src/ --count --max-complexity=5 --statistics`
+# Run the tests (must be in the src directory)
+`python -m pytest --cov=. tests/`
+
+# Run flake8 (must be in the project root directory)
+`python -m flake8 src/ --count --max-complexity=5 --statistics`
 
 # Build HTML documentation (must be in docs directory)
-`uv run make html`
+`.\make.bat html`
 
 # Build PDF documentation (must be in docs directory)
-`uv run make latexpdf`
+`.\make.bat latexpdf`
+
+# Wireframes
+Wireframes for the proposed web UI can be found in the `wireframes` directory
+
+# Pre-built documentation
+Pre-built documentation can be found in `docs/prebuilt`

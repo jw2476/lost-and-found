@@ -1,0 +1,6 @@
+lost\_and\_found.main
+=====================
+
+.. currentmodule:: lost_and_found
+
+.. autofunction:: main

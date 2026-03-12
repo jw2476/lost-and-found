@@ -1,0 +1,26 @@
+lost\_and\_found.ui.search\_params.SearchParamsViewModel
+========================================================
+
+.. currentmodule:: lost_and_found.ui.search_params
+
+.. autoclass:: SearchParamsViewModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SearchParamsViewModel.__init__
+      ~SearchParamsViewModel.draw
+   
+   
+
+   
+   
+   

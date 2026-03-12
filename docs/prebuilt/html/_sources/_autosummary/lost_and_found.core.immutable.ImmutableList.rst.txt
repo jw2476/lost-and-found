@@ -1,0 +1,33 @@
+lost\_and\_found.core.immutable.ImmutableList
+=============================================
+
+.. currentmodule:: lost_and_found.core.immutable
+
+.. autoclass:: ImmutableList
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ImmutableList.__init__
+      ~ImmutableList.append
+      ~ImmutableList.remove
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ImmutableList.value
+   
+   

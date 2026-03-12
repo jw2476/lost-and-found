@@ -1,0 +1,32 @@
+lost\_and\_found.ui.widgets.label
+=================================
+
+.. automodule:: lost_and_found.ui.widgets.label
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      LabelView
+      LabelViewModel
+   
+   
+
+   
+   
+   
+
+
+

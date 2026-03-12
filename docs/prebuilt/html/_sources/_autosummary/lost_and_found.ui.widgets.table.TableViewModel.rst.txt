@@ -1,0 +1,26 @@
+lost\_and\_found.ui.widgets.table.TableViewModel
+================================================
+
+.. currentmodule:: lost_and_found.ui.widgets.table
+
+.. autoclass:: TableViewModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TableViewModel.__init__
+      ~TableViewModel.draw
+   
+   
+
+   
+   
+   

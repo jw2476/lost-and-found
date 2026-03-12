@@ -1,0 +1,31 @@
+lost\_and\_found.ui.add\_lost\_item
+===================================
+
+.. automodule:: lost_and_found.ui.add_lost_item
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      AddLostItemViewModel
+   
+   
+
+   
+   
+   
+
+
+

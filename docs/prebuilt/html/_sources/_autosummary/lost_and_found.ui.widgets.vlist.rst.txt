@@ -1,0 +1,32 @@
+lost\_and\_found.ui.widgets.vlist
+=================================
+
+.. automodule:: lost_and_found.ui.widgets.vlist
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      VerticalListView
+      VerticalListViewModel
+   
+   
+
+   
+   
+   
+
+
+

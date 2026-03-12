@@ -1,0 +1,26 @@
+lost\_and\_found.ui.widgets.hlist.HorizontalListView
+====================================================
+
+.. currentmodule:: lost_and_found.ui.widgets.hlist
+
+.. autoclass:: HorizontalListView
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~HorizontalListView.__init__
+      ~HorizontalListView.draw
+   
+   
+
+   
+   
+   

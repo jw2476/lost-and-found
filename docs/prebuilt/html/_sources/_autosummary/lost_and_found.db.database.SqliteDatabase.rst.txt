@@ -1,0 +1,28 @@
+lost\_and\_found.db.database.SqliteDatabase
+===========================================
+
+.. currentmodule:: lost_and_found.db.database
+
+.. autoclass:: SqliteDatabase
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SqliteDatabase.__init__
+      ~SqliteDatabase.add_table
+      ~SqliteDatabase.register_converter
+      ~SqliteDatabase.replicate_table_to
+   
+   
+
+   
+   
+   

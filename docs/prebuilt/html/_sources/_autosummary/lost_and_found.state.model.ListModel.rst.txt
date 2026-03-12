@@ -1,0 +1,37 @@
+lost\_and\_found.state.model.ListModel
+======================================
+
+.. currentmodule:: lost_and_found.state.model
+
+.. autoclass:: ListModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ListModel.__init__
+      ~ListModel.append
+      ~ListModel.observe
+      ~ListModel.property
+      ~ListModel.remove_all
+      ~ListModel.set
+      ~ListModel.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ListModel.items
+   
+   

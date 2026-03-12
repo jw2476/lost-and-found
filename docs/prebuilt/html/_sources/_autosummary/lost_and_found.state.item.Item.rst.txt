@@ -1,0 +1,46 @@
+lost\_and\_found.state.item.Item
+================================
+
+.. currentmodule:: lost_and_found.state.item
+
+.. autoclass:: Item
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Item.__init__
+      ~Item.claim
+      ~Item.create_found_item
+      ~Item.create_lost_item
+      ~Item.get
+      ~Item.mark_as_found
+      ~Item.update_child
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Item.name
+      ~Item.category
+      ~Item.lost
+      ~Item.found
+      ~Item.claimed
+      ~Item.location
+      ~Item.finder_email
+      ~Item.owner_email
+      ~Item.id
+      ~Item.children
+   
+   

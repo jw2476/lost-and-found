@@ -1,0 +1,39 @@
+lost\_and\_found.db.tables.Table
+================================
+
+.. currentmodule:: lost_and_found.db.tables
+
+.. autoclass:: Table
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Table.__init__
+      ~Table.create_table
+      ~Table.create_table_query
+      ~Table.delete
+      ~Table.delete_query
+      ~Table.from_row
+      ~Table.id
+      ~Table.insert
+      ~Table.insert_query
+      ~Table.pk
+      ~Table.select_all
+      ~Table.select_all_query
+      ~Table.to_row
+      ~Table.update
+      ~Table.update_query
+   
+   
+
+   
+   
+   

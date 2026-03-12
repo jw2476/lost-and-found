@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lost_and_found.core package &mdash; Lost and Found 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Lost and Found
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">lost_and_found.core package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-lost_and_found.core.immutable">lost_and_found.core.immutable module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.immutable.ImmutableList"><code class="docutils literal notranslate"><span class="pre">ImmutableList</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.immutable.ImmutableList.append"><code class="docutils literal notranslate"><span class="pre">ImmutableList.append()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.immutable.ImmutableList.remove"><code class="docutils literal notranslate"><span class="pre">ImmutableList.remove()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.immutable.ImmutableList.value"><code class="docutils literal notranslate"><span class="pre">ImmutableList.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.core.observable">lost_and_found.core.observable module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Observable"><code class="docutils literal notranslate"><span class="pre">Observable</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Observable.filter"><code class="docutils literal notranslate"><span class="pre">Observable.filter()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Observable.start_with"><code class="docutils literal notranslate"><span class="pre">Observable.start_with()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Observable.subscribe"><code class="docutils literal notranslate"><span class="pre">Observable.subscribe()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.ObservableFilter"><code class="docutils literal notranslate"><span class="pre">ObservableFilter</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.observable.ObservableFilter.subscribe"><code class="docutils literal notranslate"><span class="pre">ObservableFilter.subscribe()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Property"><code class="docutils literal notranslate"><span class="pre">Property</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Property.subscribe"><code class="docutils literal notranslate"><span class="pre">Property.subscribe()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Property.update"><code class="docutils literal notranslate"><span class="pre">Property.update()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Property.value"><code class="docutils literal notranslate"><span class="pre">Property.value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Trigger"><code class="docutils literal notranslate"><span class="pre">Trigger</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Trigger.subscribe"><code class="docutils literal notranslate"><span class="pre">Trigger.subscribe()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.Trigger.trigger"><code class="docutils literal notranslate"><span class="pre">Trigger.trigger()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable"><code class="docutils literal notranslate"><span class="pre">ValueObservable</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable.combine"><code class="docutils literal notranslate"><span class="pre">ValueObservable.combine()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable.map"><code class="docutils literal notranslate"><span class="pre">ValueObservable.map()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable.on_change_only"><code class="docutils literal notranslate"><span class="pre">ValueObservable.on_change_only()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable.value"><code class="docutils literal notranslate"><span class="pre">ValueObservable.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.core">Module contents</a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.ImmutableList"><code class="docutils literal notranslate"><span class="pre">ImmutableList</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.ImmutableList.append"><code class="docutils literal notranslate"><span class="pre">ImmutableList.append()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.ImmutableList.remove"><code class="docutils literal notranslate"><span class="pre">ImmutableList.remove()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.ImmutableList.value"><code class="docutils literal notranslate"><span class="pre">ImmutableList.value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.core.Observable"><code class="docutils literal notranslate"><span class="pre">Observable</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.Observable.filter"><code class="docutils literal notranslate"><span class="pre">Observable.filter()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.Observable.start_with"><code class="docutils literal notranslate"><span class="pre">Observable.start_with()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.Observable.subscribe"><code class="docutils literal notranslate"><span class="pre">Observable.subscribe()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.core.Property"><code class="docutils literal notranslate"><span class="pre">Property</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.Property.subscribe"><code class="docutils literal notranslate"><span class="pre">Property.subscribe()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.Property.update"><code class="docutils literal notranslate"><span class="pre">Property.update()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.Property.value"><code class="docutils literal notranslate"><span class="pre">Property.value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.core.Trigger"><code class="docutils literal notranslate"><span class="pre">Trigger</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.Trigger.subscribe"><code class="docutils literal notranslate"><span class="pre">Trigger.subscribe()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.Trigger.trigger"><code class="docutils literal notranslate"><span class="pre">Trigger.trigger()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.core.ValueObservable"><code class="docutils literal notranslate"><span class="pre">ValueObservable</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.core.ValueObservable.combine"><code class="docutils literal notranslate"><span class="pre">ValueObservable.combine()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.ValueObservable.map"><code class="docutils literal notranslate"><span class="pre">ValueObservable.map()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.ValueObservable.on_change_only"><code class="docutils literal notranslate"><span class="pre">ValueObservable.on_change_only()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.core.ValueObservable.value"><code class="docutils literal notranslate"><span class="pre">ValueObservable.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lost and Found</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">lost_and_found.core package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lost_and_found.core.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lost-and-found-core-package">
+<h1>lost_and_found.core package<a class="headerlink" href="#lost-and-found-core-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lost_and_found.core.immutable">
+<span id="lost-and-found-core-immutable-module"></span><h2>lost_and_found.core.immutable module<a class="headerlink" href="#module-lost_and_found.core.immutable" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.immutable.ImmutableList">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.immutable.</span></span><span class="sig-name descname"><span class="pre">ImmutableList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.core.immutable.ImmutableList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An immutable, tuple-backed list-like container.</p>
+<p><cite>ImmutableList</cite> stores its items in a tuple and returns new
+instances on mutations such as <cite>append</cite> and <cite>remove</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.immutable.ImmutableList.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.immutable.ImmutableList.append" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>ImmutableList</cite> with <cite>value</cite> appended.</p>
+<p>The original instance is not modified.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.immutable.ImmutableList.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.immutable.ImmutableList.remove" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>ImmutableList</cite> with all occurrences
+of <cite>value</cite> removed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.core.immutable.ImmutableList.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#lost_and_found.core.immutable.ImmutableList.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.core.observable">
+<span id="lost-and-found-core-observable-module"></span><h2>lost_and_found.core.observable module<a class="headerlink" href="#module-lost_and_found.core.observable" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Observable">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.observable.</span></span><span class="sig-name descname"><span class="pre">Observable</span></span><a class="headerlink" href="#lost_and_found.core.observable.Observable" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Base observable interface.</p>
+<p>Subclasses should implement <cite>subscribe</cite> to accept a callable that will be
+invoked whenever the observable emits a value.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Observable.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.observable.Observable" title="lost_and_found.core.observable.Observable"><span class="pre">Observable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.observable.Observable.filter" title="Link to this definition"></a></dt>
+<dd><p>Return an observable that only emits values for which
+<cite>predicate</cite> is true.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Observable.start_with">
+<span class="sig-name descname"><span class="pre">start_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.observable.Observable.start_with" title="Link to this definition"></a></dt>
+<dd><p>Create a <cite>ValueObservable</cite> that starts with <cite>initial</cite> and
+follows this observable’s updates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Observable.subscribe">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.observable.Observable.subscribe" title="Link to this definition"></a></dt>
+<dd><p>Register <cite>subscriber</cite> to receive updates from this observable.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.ObservableFilter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.observable.</span></span><span class="sig-name descname"><span class="pre">ObservableFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.core.observable.Observable" title="lost_and_found.core.observable.Observable"><span class="pre">Observable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.core.observable.ObservableFilter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.core.observable.Observable" title="lost_and_found.core.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An observable that forwards values from a parent only when a predicate
+passes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.ObservableFilter.subscribe">
+<span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.observable.ObservableFilter.subscribe" title="Link to this definition"></a></dt>
+<dd><p>Register a subscriber to receive filtered values.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Property">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.observable.</span></span><span class="sig-name descname"><span class="pre">Property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.core.observable.Property" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueObservable</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>A simple mutable <cite>ValueObservable</cite>.</p>
+<p>Calling <cite>update</cite> changes the stored value and notifies subscribers. When a
+subscriber registers it is immediately called with the current value.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Property.subscribe">
+<span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.observable.Property.subscribe" title="Link to this definition"></a></dt>
+<dd><p>Subscribe and immediately notify with the current <cite>value</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Property.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.observable.Property.update" title="Link to this definition"></a></dt>
+<dd><p>Set <cite>new_value</cite> and notify subscribers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Property.value">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></span><a class="headerlink" href="#lost_and_found.core.observable.Property.value" title="Link to this definition"></a></dt>
+<dd><p>The current stored value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Trigger">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.observable.</span></span><span class="sig-name descname"><span class="pre">Trigger</span></span><a class="headerlink" href="#lost_and_found.core.observable.Trigger" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.core.observable.Observable" title="lost_and_found.core.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An observable that only notifies subscribers when <cite>trigger</cite> is called.</p>
+<p>Useful for one-off events rather than maintaining a current value.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Trigger.subscribe">
+<span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.observable.Trigger.subscribe" title="Link to this definition"></a></dt>
+<dd><p>Register a subscriber to be invoked when <cite>trigger</cite> is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.Trigger.trigger">
+<span class="sig-name descname"><span class="pre">trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.observable.Trigger.trigger" title="Link to this definition"></a></dt>
+<dd><p>Invoke all subscribers with <cite>value</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.ValueObservable">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.observable.</span></span><span class="sig-name descname"><span class="pre">ValueObservable</span></span><a class="headerlink" href="#lost_and_found.core.observable.ValueObservable" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.core.observable.Observable" title="lost_and_found.core.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An <cite>Observable</cite> that has a current <cite>value</cite>.</p>
+<p><cite>ValueObservable</cite> implementations expose a <cite>value</cite> property and provide
+convenience helpers like <cite>map</cite> and <cite>combine</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.ValueObservable.combine">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">combine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">TA</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TB</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.observable.ValueObservable.combine" title="Link to this definition"></a></dt>
+<dd><p>Combine two <a href="#id1"><span class="problematic" id="id2">`</span></a>ValueObservable`s into one that yields pairs of values.</p>
+<p>The returned <cite>ValueObservable</cite> updates whenever either source updates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.ValueObservable.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TResult</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">TResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.observable.ValueObservable.map" title="Link to this definition"></a></dt>
+<dd><p>Return a mapped <cite>ValueObservable</cite> whose value is <cite>transform(value)</cite>,
+and which updates whenever the source changes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.ValueObservable.on_change_only">
+<span class="sig-name descname"><span class="pre">on_change_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.observable.ValueObservable.on_change_only" title="Link to this definition"></a></dt>
+<dd><p>Return a <cite>ValueObservable</cite> that filters out consecutive duplicate
+values, emitting only on actual changes.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.core.observable.ValueObservable.value">
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></span><a class="headerlink" href="#lost_and_found.core.observable.ValueObservable.value" title="Link to this definition"></a></dt>
+<dd><p>The current value of the observable.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lost_and_found.core" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.ImmutableList">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.</span></span><span class="sig-name descname"><span class="pre">ImmutableList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.core.ImmutableList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An immutable, tuple-backed list-like container.</p>
+<p><cite>ImmutableList</cite> stores its items in a tuple and returns new
+instances on mutations such as <cite>append</cite> and <cite>remove</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.ImmutableList.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.ImmutableList" title="lost_and_found.core.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.ImmutableList.append" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>ImmutableList</cite> with <cite>value</cite> appended.</p>
+<p>The original instance is not modified.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.ImmutableList.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.ImmutableList" title="lost_and_found.core.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.ImmutableList.remove" title="Link to this definition"></a></dt>
+<dd><p>Return a new <cite>ImmutableList</cite> with all occurrences
+of <cite>value</cite> removed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lost_and_found.core.ImmutableList.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#lost_and_found.core.ImmutableList.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.Observable">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.</span></span><span class="sig-name descname"><span class="pre">Observable</span></span><a class="headerlink" href="#lost_and_found.core.Observable" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Base observable interface.</p>
+<p>Subclasses should implement <cite>subscribe</cite> to accept a callable that will be
+invoked whenever the observable emits a value.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.Observable.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.Observable" title="lost_and_found.core.Observable"><span class="pre">Observable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.Observable.filter" title="Link to this definition"></a></dt>
+<dd><p>Return an observable that only emits values for which
+<cite>predicate</cite> is true.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.Observable.start_with">
+<span class="sig-name descname"><span class="pre">start_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.ValueObservable" title="lost_and_found.core.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.Observable.start_with" title="Link to this definition"></a></dt>
+<dd><p>Create a <cite>ValueObservable</cite> that starts with <cite>initial</cite> and
+follows this observable’s updates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.Observable.subscribe">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.Observable.subscribe" title="Link to this definition"></a></dt>
+<dd><p>Register <cite>subscriber</cite> to receive updates from this observable.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.Property">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.</span></span><span class="sig-name descname"><span class="pre">Property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.core.Property" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueObservable</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>A simple mutable <cite>ValueObservable</cite>.</p>
+<p>Calling <cite>update</cite> changes the stored value and notifies subscribers. When a
+subscriber registers it is immediately called with the current value.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.Property.subscribe">
+<span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.Property.subscribe" title="Link to this definition"></a></dt>
+<dd><p>Subscribe and immediately notify with the current <cite>value</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.Property.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.Property.update" title="Link to this definition"></a></dt>
+<dd><p>Set <cite>new_value</cite> and notify subscribers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.core.Property.value">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></span><a class="headerlink" href="#lost_and_found.core.Property.value" title="Link to this definition"></a></dt>
+<dd><p>The current stored value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.Trigger">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.</span></span><span class="sig-name descname"><span class="pre">Trigger</span></span><a class="headerlink" href="#lost_and_found.core.Trigger" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.core.observable.Observable" title="lost_and_found.core.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An observable that only notifies subscribers when <cite>trigger</cite> is called.</p>
+<p>Useful for one-off events rather than maintaining a current value.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.Trigger.subscribe">
+<span class="sig-name descname"><span class="pre">subscribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.Trigger.subscribe" title="Link to this definition"></a></dt>
+<dd><p>Register a subscriber to be invoked when <cite>trigger</cite> is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.Trigger.trigger">
+<span class="sig-name descname"><span class="pre">trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.core.Trigger.trigger" title="Link to this definition"></a></dt>
+<dd><p>Invoke all subscribers with <cite>value</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.core.ValueObservable">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.core.</span></span><span class="sig-name descname"><span class="pre">ValueObservable</span></span><a class="headerlink" href="#lost_and_found.core.ValueObservable" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.core.observable.Observable" title="lost_and_found.core.observable.Observable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observable</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>An <cite>Observable</cite> that has a current <cite>value</cite>.</p>
+<p><cite>ValueObservable</cite> implementations expose a <cite>value</cite> property and provide
+convenience helpers like <cite>map</cite> and <cite>combine</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.ValueObservable.combine">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">combine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.observable.ValueObservable" title="lost_and_found.core.observable.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">TA</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TB</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.ValueObservable.combine" title="Link to this definition"></a></dt>
+<dd><p>Combine two <a href="#id3"><span class="problematic" id="id4">`</span></a>ValueObservable`s into one that yields pairs of values.</p>
+<p>The returned <cite>ValueObservable</cite> updates whenever either source updates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.ValueObservable.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">TResult</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.ValueObservable" title="lost_and_found.core.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">TResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.ValueObservable.map" title="Link to this definition"></a></dt>
+<dd><p>Return a mapped <cite>ValueObservable</cite> whose value is <cite>transform(value)</cite>,
+and which updates whenever the source changes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.core.ValueObservable.on_change_only">
+<span class="sig-name descname"><span class="pre">on_change_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#lost_and_found.core.ValueObservable" title="lost_and_found.core.ValueObservable"><span class="pre">ValueObservable</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.core.ValueObservable.on_change_only" title="Link to this definition"></a></dt>
+<dd><p>Return a <cite>ValueObservable</cite> that filters out consecutive duplicate
+values, emitting only on actual changes.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="lost_and_found.core.ValueObservable.value">
+<span class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">value</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></span><a class="headerlink" href="#lost_and_found.core.ValueObservable.value" title="Link to this definition"></a></dt>
+<dd><p>The current value of the observable.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Mary Poppins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

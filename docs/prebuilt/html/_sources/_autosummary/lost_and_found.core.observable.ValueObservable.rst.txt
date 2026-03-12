@@ -1,0 +1,37 @@
+lost\_and\_found.core.observable.ValueObservable
+================================================
+
+.. currentmodule:: lost_and_found.core.observable
+
+.. autoclass:: ValueObservable
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ValueObservable.__init__
+      ~ValueObservable.combine
+      ~ValueObservable.filter
+      ~ValueObservable.map
+      ~ValueObservable.on_change_only
+      ~ValueObservable.start_with
+      ~ValueObservable.subscribe
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ValueObservable.value
+   
+   

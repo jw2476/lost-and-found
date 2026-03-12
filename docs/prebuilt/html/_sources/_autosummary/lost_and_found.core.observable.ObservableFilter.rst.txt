@@ -1,0 +1,28 @@
+lost\_and\_found.core.observable.ObservableFilter
+=================================================
+
+.. currentmodule:: lost_and_found.core.observable
+
+.. autoclass:: ObservableFilter
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ObservableFilter.__init__
+      ~ObservableFilter.filter
+      ~ObservableFilter.start_with
+      ~ObservableFilter.subscribe
+   
+   
+
+   
+   
+   

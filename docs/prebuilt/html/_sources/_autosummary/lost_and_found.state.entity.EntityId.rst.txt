@@ -1,0 +1,32 @@
+lost\_and\_found.state.entity.EntityId
+======================================
+
+.. currentmodule:: lost_and_found.state.entity
+
+.. autoclass:: EntityId
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EntityId.__init__
+      ~EntityId.new
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~EntityId.id
+   
+   

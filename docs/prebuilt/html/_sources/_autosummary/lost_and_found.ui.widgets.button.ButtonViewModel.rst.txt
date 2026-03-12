@@ -1,0 +1,32 @@
+lost\_and\_found.ui.widgets.button.ButtonViewModel
+==================================================
+
+.. currentmodule:: lost_and_found.ui.widgets.button
+
+.. autoclass:: ButtonViewModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ButtonViewModel.__init__
+      ~ButtonViewModel.draw
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ButtonViewModel.on_click
+   
+   

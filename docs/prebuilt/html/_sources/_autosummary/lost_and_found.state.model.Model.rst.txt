@@ -1,0 +1,28 @@
+lost\_and\_found.state.model.Model
+==================================
+
+.. currentmodule:: lost_and_found.state.model
+
+.. autoclass:: Model
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Model.__init__
+      ~Model.observe
+      ~Model.property
+      ~Model.update
+   
+   
+
+   
+   
+   

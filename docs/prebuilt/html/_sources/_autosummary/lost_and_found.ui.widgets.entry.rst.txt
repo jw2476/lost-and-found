@@ -1,0 +1,32 @@
+lost\_and\_found.ui.widgets.entry
+=================================
+
+.. automodule:: lost_and_found.ui.widgets.entry
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      EntryView
+      EntryViewModel
+   
+   
+
+   
+   
+   
+
+
+

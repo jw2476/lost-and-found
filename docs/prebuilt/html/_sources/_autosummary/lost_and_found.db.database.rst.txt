@@ -1,0 +1,34 @@
+lost\_and\_found.db.database
+============================
+
+.. automodule:: lost_and_found.db.database
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      Database
+      FileDatabase
+      InMemoryDatabase
+      SqliteDatabase
+   
+   
+
+   
+   
+   
+
+
+

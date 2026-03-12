@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lost_and_found.ui package &mdash; Lost and Found 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Lost and Found
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">lost_and_found.ui package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-lost_and_found.ui.add_found_item">lost_and_found.ui.add_found_item module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.add_found_item.AddFoundItemViewModel"><code class="docutils literal notranslate"><span class="pre">AddFoundItemViewModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.add_found_item.AddFoundItemViewModel.apply"><code class="docutils literal notranslate"><span class="pre">AddFoundItemViewModel.apply()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.ui.add_found_item.AddFoundItemViewModel.validate"><code class="docutils literal notranslate"><span class="pre">AddFoundItemViewModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.ui.add_lost_item">lost_and_found.ui.add_lost_item module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.add_lost_item.AddLostItemViewModel"><code class="docutils literal notranslate"><span class="pre">AddLostItemViewModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.add_lost_item.AddLostItemViewModel.apply"><code class="docutils literal notranslate"><span class="pre">AddLostItemViewModel.apply()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.ui.add_lost_item.AddLostItemViewModel.validate"><code class="docutils literal notranslate"><span class="pre">AddLostItemViewModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.ui.claim">lost_and_found.ui.claim module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.claim.ClaimItemsViewModel"><code class="docutils literal notranslate"><span class="pre">ClaimItemsViewModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.claim.ClaimItemsViewModel.apply"><code class="docutils literal notranslate"><span class="pre">ClaimItemsViewModel.apply()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.ui.claim.ClaimItemsViewModel.validate"><code class="docutils literal notranslate"><span class="pre">ClaimItemsViewModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.ui.items">lost_and_found.ui.items module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.items.ItemsViewModel"><code class="docutils literal notranslate"><span class="pre">ItemsViewModel</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.ui.mark_as_found">lost_and_found.ui.mark_as_found module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel"><code class="docutils literal notranslate"><span class="pre">MarkItemsAsFoundViewModel</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel.apply"><code class="docutils literal notranslate"><span class="pre">MarkItemsAsFoundViewModel.apply()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel.validate"><code class="docutils literal notranslate"><span class="pre">MarkItemsAsFoundViewModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.ui.search_params">lost_and_found.ui.search_params module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.search_params.SearchParamsViewModel"><code class="docutils literal notranslate"><span class="pre">SearchParamsViewModel</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.ui">Module contents</a><ul>
+<li><a class="reference internal" href="#lost_and_found.ui.AppViewModel"><code class="docutils literal notranslate"><span class="pre">AppViewModel</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lost and Found</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">lost_and_found.ui package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lost_and_found.ui.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lost-and-found-ui-package">
+<h1>lost_and_found.ui package<a class="headerlink" href="#lost-and-found-ui-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lost_and_found.ui.widgets.html">lost_and_found.ui.widgets package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.base">lost_and_found.ui.widgets.base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.base.View"><code class="docutils literal notranslate"><span class="pre">View</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.base.View.draw"><code class="docutils literal notranslate"><span class="pre">View.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.base.ViewModel"><code class="docutils literal notranslate"><span class="pre">ViewModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.base.ViewModel.draw"><code class="docutils literal notranslate"><span class="pre">ViewModel.draw()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.button">lost_and_found.ui.widgets.button module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.button.ButtonView"><code class="docutils literal notranslate"><span class="pre">ButtonView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.button.ButtonView.draw"><code class="docutils literal notranslate"><span class="pre">ButtonView.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.button.ButtonViewModel"><code class="docutils literal notranslate"><span class="pre">ButtonViewModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.button.ButtonViewModel.on_click"><code class="docutils literal notranslate"><span class="pre">ButtonViewModel.on_click</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.dialog">lost_and_found.ui.widgets.dialog module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogView"><code class="docutils literal notranslate"><span class="pre">DialogView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogView.apply"><code class="docutils literal notranslate"><span class="pre">DialogView.apply()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogView.body"><code class="docutils literal notranslate"><span class="pre">DialogView.body()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogView.draw"><code class="docutils literal notranslate"><span class="pre">DialogView.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogView.validate"><code class="docutils literal notranslate"><span class="pre">DialogView.validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogViewModel"><code class="docutils literal notranslate"><span class="pre">DialogViewModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogViewModel.apply"><code class="docutils literal notranslate"><span class="pre">DialogViewModel.apply()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogViewModel.validate"><code class="docutils literal notranslate"><span class="pre">DialogViewModel.validate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.entry">lost_and_found.ui.widgets.entry module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.entry.EntryView"><code class="docutils literal notranslate"><span class="pre">EntryView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.entry.EntryView.draw"><code class="docutils literal notranslate"><span class="pre">EntryView.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.entry.EntryViewModel"><code class="docutils literal notranslate"><span class="pre">EntryViewModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.grid">lost_and_found.ui.widgets.grid module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.grid.GridView"><code class="docutils literal notranslate"><span class="pre">GridView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.grid.GridView.draw"><code class="docutils literal notranslate"><span class="pre">GridView.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.grid.GridViewModel"><code class="docutils literal notranslate"><span class="pre">GridViewModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.hlist">lost_and_found.ui.widgets.hlist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.hlist.HorizontalListView"><code class="docutils literal notranslate"><span class="pre">HorizontalListView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.hlist.HorizontalListView.draw"><code class="docutils literal notranslate"><span class="pre">HorizontalListView.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.hlist.HorizontalListViewModel"><code class="docutils literal notranslate"><span class="pre">HorizontalListViewModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.label">lost_and_found.ui.widgets.label module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.label.LabelView"><code class="docutils literal notranslate"><span class="pre">LabelView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.label.LabelView.draw"><code class="docutils literal notranslate"><span class="pre">LabelView.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.label.LabelViewModel"><code class="docutils literal notranslate"><span class="pre">LabelViewModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.option_menu">lost_and_found.ui.widgets.option_menu module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.option_menu.OptionMenuView"><code class="docutils literal notranslate"><span class="pre">OptionMenuView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.option_menu.OptionMenuView.draw"><code class="docutils literal notranslate"><span class="pre">OptionMenuView.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.option_menu.OptionMenuViewModel"><code class="docutils literal notranslate"><span class="pre">OptionMenuViewModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.table">lost_and_found.ui.widgets.table module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.table.TableView"><code class="docutils literal notranslate"><span class="pre">TableView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.table.TableView.draw"><code class="docutils literal notranslate"><span class="pre">TableView.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.table.TableViewModel"><code class="docutils literal notranslate"><span class="pre">TableViewModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets.vlist">lost_and_found.ui.widgets.vlist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.vlist.VerticalListView"><code class="docutils literal notranslate"><span class="pre">VerticalListView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.vlist.VerticalListView.draw"><code class="docutils literal notranslate"><span class="pre">VerticalListView.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.vlist.VerticalListViewModel"><code class="docutils literal notranslate"><span class="pre">VerticalListViewModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lost_and_found.ui.widgets.html#module-lost_and_found.ui.widgets">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lost_and_found.ui.add_found_item">
+<span id="lost-and-found-ui-add-found-item-module"></span><h2>lost_and_found.ui.add_found_item module<a class="headerlink" href="#module-lost_and_found.ui.add_found_item" title="Link to this heading"></a></h2>
+<p>View model for adding a found item via a dialog.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.ui.add_found_item.AddFoundItemViewModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.ui.add_found_item.</span></span><span class="sig-name descname"><span class="pre">AddFoundItemViewModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.ItemsModel" title="lost_and_found.state.model.ItemsModel"><span class="pre">ItemsModel</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.ui.add_found_item.AddFoundItemViewModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogViewModel" title="lost_and_found.ui.widgets.dialog.DialogViewModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogViewModel</span></code></a></p>
+<p>Dialog view-model for creating a new found <cite>Item</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.ui.add_found_item.AddFoundItemViewModel.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.ui.add_found_item.AddFoundItemViewModel.apply" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.ui.add_found_item.AddFoundItemViewModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#lost_and_found.ui.add_found_item.AddFoundItemViewModel.validate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.ui.add_lost_item">
+<span id="lost-and-found-ui-add-lost-item-module"></span><h2>lost_and_found.ui.add_lost_item module<a class="headerlink" href="#module-lost_and_found.ui.add_lost_item" title="Link to this heading"></a></h2>
+<p>View model for adding a lost item via a dialog.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.ui.add_lost_item.AddLostItemViewModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.ui.add_lost_item.</span></span><span class="sig-name descname"><span class="pre">AddLostItemViewModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.ItemsModel" title="lost_and_found.state.model.ItemsModel"><span class="pre">ItemsModel</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.ui.add_lost_item.AddLostItemViewModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogViewModel" title="lost_and_found.ui.widgets.dialog.DialogViewModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogViewModel</span></code></a></p>
+<p>Dialog view-model for creating a new lost <cite>Item</cite>.</p>
+<p>Exposes <cite>Property</cite> objects for the form fields and implements
+<cite>validate</cite>/<cite>apply</cite> for the dialog lifecycle.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.ui.add_lost_item.AddLostItemViewModel.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.ui.add_lost_item.AddLostItemViewModel.apply" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.ui.add_lost_item.AddLostItemViewModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#lost_and_found.ui.add_lost_item.AddLostItemViewModel.validate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.ui.claim">
+<span id="lost-and-found-ui-claim-module"></span><h2>lost_and_found.ui.claim module<a class="headerlink" href="#module-lost_and_found.ui.claim" title="Link to this heading"></a></h2>
+<p>Dialog view-model for claiming items.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.ui.claim.ClaimItemsViewModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.ui.claim.</span></span><span class="sig-name descname"><span class="pre">ClaimItemsViewModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.ui.claim.ClaimItemsViewModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogViewModel" title="lost_and_found.ui.widgets.dialog.DialogViewModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogViewModel</span></code></a></p>
+<p>Collect owner contact details and mark provided items as claimed.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.ui.claim.ClaimItemsViewModel.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.ui.claim.ClaimItemsViewModel.apply" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.ui.claim.ClaimItemsViewModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#lost_and_found.ui.claim.ClaimItemsViewModel.validate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.ui.items">
+<span id="lost-and-found-ui-items-module"></span><h2>lost_and_found.ui.items module<a class="headerlink" href="#module-lost_and_found.ui.items" title="Link to this heading"></a></h2>
+<p>View models composing the main items UI.</p>
+<p>This module wires smaller view-model widgets into the top-level
+<cite>ItemsViewModel</cite> used by the UI to present and operate on <cite>Item</cite> entities.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.ui.items.ItemsViewModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.ui.items.</span></span><span class="sig-name descname"><span class="pre">ItemsViewModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.ItemsModel" title="lost_and_found.state.model.ItemsModel"><span class="pre">ItemsModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.SearchParamsModel" title="lost_and_found.state.model.SearchParamsModel"><span class="pre">SearchParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.ui.items.ItemsViewModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.vlist.VerticalListViewModel" title="lost_and_found.ui.widgets.vlist.VerticalListViewModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerticalListViewModel</span></code></a></p>
+<p>Composes table and action button view models for the items screen.</p>
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.ui.mark_as_found">
+<span id="lost-and-found-ui-mark-as-found-module"></span><h2>lost_and_found.ui.mark_as_found module<a class="headerlink" href="#module-lost_and_found.ui.mark_as_found" title="Link to this heading"></a></h2>
+<p>Dialog view-model for marking multiple items as found.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.ui.mark_as_found.</span></span><span class="sig-name descname"><span class="pre">MarkItemsAsFoundViewModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hierarchy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.entity.Hierarchy" title="lost_and_found.state.entity.Hierarchy"><span class="pre">Hierarchy</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.entity.Entity" title="lost_and_found.state.entity.Entity"><span class="pre">Entity</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.dialog.DialogViewModel" title="lost_and_found.ui.widgets.dialog.DialogViewModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DialogViewModel</span></code></a></p>
+<p>Collects location and contact info and marks provided items as found.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel.apply" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#lost_and_found.ui.mark_as_found.MarkItemsAsFoundViewModel.validate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.ui.search_params">
+<span id="lost-and-found-ui-search-params-module"></span><h2>lost_and_found.ui.search_params module<a class="headerlink" href="#module-lost_and_found.ui.search_params" title="Link to this heading"></a></h2>
+<p>View model exposing search parameter controls.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.ui.search_params.SearchParamsViewModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.ui.search_params.</span></span><span class="sig-name descname"><span class="pre">SearchParamsViewModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.SearchParamsModel" title="lost_and_found.state.model.SearchParamsModel"><span class="pre">SearchParamsModel</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.ui.search_params.SearchParamsViewModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.hlist.HorizontalListViewModel" title="lost_and_found.ui.widgets.hlist.HorizontalListViewModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">HorizontalListViewModel</span></code></a></p>
+<p>View-model providing name and category controls for searching.</p>
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.ui">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lost_and_found.ui" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.ui.AppViewModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.ui.</span></span><span class="sig-name descname"><span class="pre">AppViewModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.AppModel" title="lost_and_found.state.model.AppModel"><span class="pre">AppModel</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.ui.AppViewModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lost_and_found.ui.widgets.html#lost_and_found.ui.widgets.vlist.VerticalListViewModel" title="lost_and_found.ui.widgets.vlist.VerticalListViewModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">VerticalListViewModel</span></code></a></p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Mary Poppins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

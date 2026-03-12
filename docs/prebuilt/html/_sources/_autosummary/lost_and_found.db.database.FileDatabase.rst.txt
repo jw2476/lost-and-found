@@ -1,0 +1,28 @@
+lost\_and\_found.db.database.FileDatabase
+=========================================
+
+.. currentmodule:: lost_and_found.db.database
+
+.. autoclass:: FileDatabase
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FileDatabase.__init__
+      ~FileDatabase.add_table
+      ~FileDatabase.register_converter
+      ~FileDatabase.replicate_table_to
+   
+   
+
+   
+   
+   

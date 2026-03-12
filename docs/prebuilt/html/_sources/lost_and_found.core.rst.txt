@@ -1,0 +1,29 @@
+lost\_and\_found.core package
+=============================
+
+Submodules
+----------
+
+lost\_and\_found.core.immutable module
+--------------------------------------
+
+.. automodule:: lost_and_found.core.immutable
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+lost\_and\_found.core.observable module
+---------------------------------------
+
+.. automodule:: lost_and_found.core.observable
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: lost_and_found.core
+   :members:
+   :show-inheritance:
+   :undoc-members:

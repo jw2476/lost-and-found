@@ -1,0 +1,33 @@
+lost\_and\_found.state.entity.Hierarchy
+=======================================
+
+.. currentmodule:: lost_and_found.state.entity
+
+.. autoclass:: Hierarchy
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Hierarchy.__init__
+      ~Hierarchy.update
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Hierarchy.observable
+      ~Hierarchy.root
+   
+   

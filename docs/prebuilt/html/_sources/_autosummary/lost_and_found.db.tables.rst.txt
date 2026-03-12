@@ -1,0 +1,32 @@
+lost\_and\_found.db.tables
+==========================
+
+.. automodule:: lost_and_found.db.tables
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      ItemsTable
+      Table
+   
+   
+
+   
+   
+   
+
+
+

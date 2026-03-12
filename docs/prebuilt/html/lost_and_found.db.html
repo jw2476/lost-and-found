@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lost_and_found.db package &mdash; Lost and Found 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Lost and Found
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">lost_and_found.db package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-lost_and_found.db.converters">lost_and_found.db.converters module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.converters.CategoryConverter"><code class="docutils literal notranslate"><span class="pre">CategoryConverter</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.converters.CategoryConverter.from_bytes"><code class="docutils literal notranslate"><span class="pre">CategoryConverter.from_bytes()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.converters.CategoryConverter.to_str"><code class="docutils literal notranslate"><span class="pre">CategoryConverter.to_str()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.converters.CategoryConverter.type"><code class="docutils literal notranslate"><span class="pre">CategoryConverter.type()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.db.converters.Converter"><code class="docutils literal notranslate"><span class="pre">Converter</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.converters.Converter.from_bytes"><code class="docutils literal notranslate"><span class="pre">Converter.from_bytes()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.converters.Converter.to_str"><code class="docutils literal notranslate"><span class="pre">Converter.to_str()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.converters.Converter.type"><code class="docutils literal notranslate"><span class="pre">Converter.type()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.db.converters.DatetimeConverter"><code class="docutils literal notranslate"><span class="pre">DatetimeConverter</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.converters.DatetimeConverter.from_bytes"><code class="docutils literal notranslate"><span class="pre">DatetimeConverter.from_bytes()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.converters.DatetimeConverter.to_str"><code class="docutils literal notranslate"><span class="pre">DatetimeConverter.to_str()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.converters.DatetimeConverter.type"><code class="docutils literal notranslate"><span class="pre">DatetimeConverter.type()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.db.database">lost_and_found.db.database module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.database.Database"><code class="docutils literal notranslate"><span class="pre">Database</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.database.Database.add_table"><code class="docutils literal notranslate"><span class="pre">Database.add_table()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.database.Database.register_converter"><code class="docutils literal notranslate"><span class="pre">Database.register_converter()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.database.Database.replicate_table_to"><code class="docutils literal notranslate"><span class="pre">Database.replicate_table_to()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.db.database.FileDatabase"><code class="docutils literal notranslate"><span class="pre">FileDatabase</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.database.InMemoryDatabase"><code class="docutils literal notranslate"><span class="pre">InMemoryDatabase</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.database.SqliteDatabase"><code class="docutils literal notranslate"><span class="pre">SqliteDatabase</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.database.SqliteDatabase.add_table"><code class="docutils literal notranslate"><span class="pre">SqliteDatabase.add_table()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.database.SqliteDatabase.register_converter"><code class="docutils literal notranslate"><span class="pre">SqliteDatabase.register_converter()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.database.SqliteDatabase.replicate_table_to"><code class="docutils literal notranslate"><span class="pre">SqliteDatabase.replicate_table_to()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.db.replicator">lost_and_found.db.replicator module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.replicator.Replicator"><code class="docutils literal notranslate"><span class="pre">Replicator</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.replicator.Replicator.diff"><code class="docutils literal notranslate"><span class="pre">Replicator.diff()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.replicator.Replicator.on_change"><code class="docutils literal notranslate"><span class="pre">Replicator.on_change()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.db.tables">lost_and_found.db.tables module</a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.tables.ItemsTable"><code class="docutils literal notranslate"><span class="pre">ItemsTable</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.tables.ItemsTable.create_table_query"><code class="docutils literal notranslate"><span class="pre">ItemsTable.create_table_query()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.ItemsTable.delete_query"><code class="docutils literal notranslate"><span class="pre">ItemsTable.delete_query()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.ItemsTable.from_row"><code class="docutils literal notranslate"><span class="pre">ItemsTable.from_row()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.ItemsTable.insert_query"><code class="docutils literal notranslate"><span class="pre">ItemsTable.insert_query()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.ItemsTable.select_all_query"><code class="docutils literal notranslate"><span class="pre">ItemsTable.select_all_query()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.ItemsTable.to_row"><code class="docutils literal notranslate"><span class="pre">ItemsTable.to_row()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.ItemsTable.update_query"><code class="docutils literal notranslate"><span class="pre">ItemsTable.update_query()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table"><code class="docutils literal notranslate"><span class="pre">Table</span></code></a><ul>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.create_table"><code class="docutils literal notranslate"><span class="pre">Table.create_table()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.create_table_query"><code class="docutils literal notranslate"><span class="pre">Table.create_table_query()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.delete"><code class="docutils literal notranslate"><span class="pre">Table.delete()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.delete_query"><code class="docutils literal notranslate"><span class="pre">Table.delete_query()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.from_row"><code class="docutils literal notranslate"><span class="pre">Table.from_row()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.id"><code class="docutils literal notranslate"><span class="pre">Table.id()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.insert"><code class="docutils literal notranslate"><span class="pre">Table.insert()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.insert_query"><code class="docutils literal notranslate"><span class="pre">Table.insert_query()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.pk"><code class="docutils literal notranslate"><span class="pre">Table.pk()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.select_all"><code class="docutils literal notranslate"><span class="pre">Table.select_all()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.select_all_query"><code class="docutils literal notranslate"><span class="pre">Table.select_all_query()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.to_row"><code class="docutils literal notranslate"><span class="pre">Table.to_row()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.update"><code class="docutils literal notranslate"><span class="pre">Table.update()</span></code></a></li>
+<li><a class="reference internal" href="#lost_and_found.db.tables.Table.update_query"><code class="docutils literal notranslate"><span class="pre">Table.update_query()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-lost_and_found.db">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lost and Found</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">lost_and_found.db package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lost_and_found.db.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lost-and-found-db-package">
+<h1>lost_and_found.db package<a class="headerlink" href="#lost-and-found-db-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-lost_and_found.db.converters">
+<span id="lost-and-found-db-converters-module"></span><h2>lost_and_found.db.converters module<a class="headerlink" href="#module-lost_and_found.db.converters" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.CategoryConverter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.converters.</span></span><span class="sig-name descname"><span class="pre">CategoryConverter</span></span><a class="headerlink" href="#lost_and_found.db.converters.CategoryConverter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.db.converters.Converter" title="lost_and_found.db.converters.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Converter</span></code></a>[<a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><code class="xref py py-class docutils literal notranslate"><span class="pre">Category</span></code></a>]</p>
+<p>Converter for the <cite>Category</cite> enum value used by <cite>Item</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.CategoryConverter.from_bytes">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span></span><a class="headerlink" href="#lost_and_found.db.converters.CategoryConverter.from_bytes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.CategoryConverter.to_str">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.converters.CategoryConverter.to_str" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.CategoryConverter.type">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Category" title="lost_and_found.state.item.Category"><span class="pre">Category</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.db.converters.CategoryConverter.type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.Converter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.converters.</span></span><span class="sig-name descname"><span class="pre">Converter</span></span><a class="headerlink" href="#lost_and_found.db.converters.Converter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Base class for converting values to/from bytes/strings for DB.</p>
+<p>Concrete implementations must provide the Python <cite>type</cite>, a <cite>to_str</cite>
+adapter and a <cite>from_bytes</cite> parser used when registering with
+<cite>sqlite3</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.Converter.from_bytes">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="headerlink" href="#lost_and_found.db.converters.Converter.from_bytes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.Converter.to_str">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.converters.Converter.to_str" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.Converter.type">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Type</span></span></span><a class="headerlink" href="#lost_and_found.db.converters.Converter.type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.DatetimeConverter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.converters.</span></span><span class="sig-name descname"><span class="pre">DatetimeConverter</span></span><a class="headerlink" href="#lost_and_found.db.converters.DatetimeConverter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.db.converters.Converter" title="lost_and_found.db.converters.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Converter</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>]</p>
+<p>Converter for <cite>datetime</cite> objects using ISO format.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.DatetimeConverter.from_bytes">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">datetime</span></span></span><a class="headerlink" href="#lost_and_found.db.converters.DatetimeConverter.from_bytes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.DatetimeConverter.to_str">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.converters.DatetimeConverter.to_str" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.converters.DatetimeConverter.type">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.db.converters.DatetimeConverter.type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.db.database">
+<span id="lost-and-found-db-database-module"></span><h2>lost_and_found.db.database module<a class="headerlink" href="#module-lost_and_found.db.database" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.database.Database">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.database.</span></span><span class="sig-name descname"><span class="pre">Database</span></span><a class="headerlink" href="#lost_and_found.db.database.Database" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>A base class interface for database implementations.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.database.Database.add_table">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">add_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.db.tables.Table" title="lost_and_found.db.tables.Table"><span class="pre">Table</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.database.Database.add_table" title="Link to this definition"></a></dt>
+<dd><p>Create and register a <cite>Table</cite> instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.database.Database.register_converter">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">register_converter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">converter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.db.converters.Converter" title="lost_and_found.db.converters.Converter"><span class="pre">Converter</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.database.Database.register_converter" title="Link to this definition"></a></dt>
+<dd><p>Register a converter type so custom types can be stored.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.database.Database.replicate_table_to">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">replicate_table_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.db.tables.Table" title="lost_and_found.db.tables.Table"><span class="pre">Table</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.ListModel" title="lost_and_found.state.model.ListModel"><span class="pre">ListModel</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.database.Database.replicate_table_to" title="Link to this definition"></a></dt>
+<dd><p>Start replicating changes from <cite>model</cite> into <cite>table</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.database.FileDatabase">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.database.</span></span><span class="sig-name descname"><span class="pre">FileDatabase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.db.database.FileDatabase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.db.database.SqliteDatabase" title="lost_and_found.db.database.SqliteDatabase"><code class="xref py py-class docutils literal notranslate"><span class="pre">SqliteDatabase</span></code></a></p>
+<p>A <cite>SqliteDatabase</cite> backed by a file on disk.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.database.InMemoryDatabase">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.database.</span></span><span class="sig-name descname"><span class="pre">InMemoryDatabase</span></span><a class="headerlink" href="#lost_and_found.db.database.InMemoryDatabase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.db.database.SqliteDatabase" title="lost_and_found.db.database.SqliteDatabase"><code class="xref py py-class docutils literal notranslate"><span class="pre">SqliteDatabase</span></code></a></p>
+<p>An in-memory <cite>SqliteDatabase</cite> useful for tests and ephemeral use.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.database.SqliteDatabase">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.database.</span></span><span class="sig-name descname"><span class="pre">SqliteDatabase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Connection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.db.database.SqliteDatabase" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.db.database.Database" title="lost_and_found.db.database.Database"><code class="xref py py-class docutils literal notranslate"><span class="pre">Database</span></code></a></p>
+<p>SQLite-backed <cite>Database</cite> implementation.</p>
+<p>This class wraps a sqlite3 connection and exposes simple helpers to
+register converters and to create table instances. Tables created via
+<cite>add_table</cite> will have their schema created immediately.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.database.SqliteDatabase.add_table">
+<span class="sig-name descname"><span class="pre">add_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.db.tables.Table" title="lost_and_found.db.tables.Table"><span class="pre">Table</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.database.SqliteDatabase.add_table" title="Link to this definition"></a></dt>
+<dd><p>Instantiate and create the database table for <cite>table</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.database.SqliteDatabase.register_converter">
+<span class="sig-name descname"><span class="pre">register_converter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">converter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.db.converters.Converter" title="lost_and_found.db.converters.Converter"><span class="pre">Converter</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.database.SqliteDatabase.register_converter" title="Link to this definition"></a></dt>
+<dd><p>Register adapter and converter functions with <cite>sqlite3</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.database.SqliteDatabase.replicate_table_to">
+<span class="sig-name descname"><span class="pre">replicate_table_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#lost_and_found.db.tables.Table" title="lost_and_found.db.tables.Table"><span class="pre">Table</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.ListModel" title="lost_and_found.state.model.ListModel"><span class="pre">ListModel</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.database.SqliteDatabase.replicate_table_to" title="Link to this definition"></a></dt>
+<dd><p>Attach a <cite>Replicator</cite> to mirror a model into a DB table.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.db.replicator">
+<span id="lost-and-found-db-replicator-module"></span><h2>lost_and_found.db.replicator module<a class="headerlink" href="#module-lost_and_found.db.replicator" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.replicator.Replicator">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.replicator.</span></span><span class="sig-name descname"><span class="pre">Replicator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.model.ListModel" title="lost_and_found.state.model.ListModel"><span class="pre">ListModel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#lost_and_found.db.tables.Table" title="lost_and_found.db.tables.Table"><span class="pre">Table</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.db.replicator.Replicator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Listen to a <cite>ListModel</cite> and apply changes to a <cite>Table</cite>.</p>
+<p>On construction the replicator seeds the model with existing rows from
+<cite>table.select_all()</cite> and subscribes to subsequent changes to replicate
+diffs into the table.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.replicator.Replicator.diff">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">previous</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">current</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.db.replicator.Replicator.diff" title="Link to this definition"></a></dt>
+<dd><p>Return three lists: (inserted, updated, deleted) between two states.</p>
+<p>Entities are compared by <cite>id</cite>. When an id is present in both but the
+object identity differs the entity is considered updated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.replicator.Replicator.on_change">
+<span class="sig-name descname"><span class="pre">on_change</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.replicator.Replicator.on_change" title="Link to this definition"></a></dt>
+<dd><p>Handle updated model values by computing and applying a diff.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.db.tables">
+<span id="lost-and-found-db-tables-module"></span><h2>lost_and_found.db.tables module<a class="headerlink" href="#module-lost_and_found.db.tables" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.ItemsTable">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.tables.</span></span><span class="sig-name descname"><span class="pre">ItemsTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Cursor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.db.tables.ItemsTable" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lost_and_found.db.tables.Table" title="lost_and_found.db.tables.Table"><code class="xref py py-class docutils literal notranslate"><span class="pre">Table</span></code></a>[<a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><code class="xref py py-class docutils literal notranslate"><span class="pre">Item</span></code></a>]</p>
+<p>Concrete table implementation for <cite>Item</cite> entities.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.ItemsTable.create_table_query">
+<span class="sig-name descname"><span class="pre">create_table_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.ItemsTable.create_table_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.ItemsTable.delete_query">
+<span class="sig-name descname"><span class="pre">delete_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.ItemsTable.delete_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.ItemsTable.from_row">
+<span class="sig-name descname"><span class="pre">from_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></span><a class="headerlink" href="#lost_and_found.db.tables.ItemsTable.from_row" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.ItemsTable.insert_query">
+<span class="sig-name descname"><span class="pre">insert_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.ItemsTable.insert_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.ItemsTable.select_all_query">
+<span class="sig-name descname"><span class="pre">select_all_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.ItemsTable.select_all_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.ItemsTable.to_row">
+<span class="sig-name descname"><span class="pre">to_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.item.Item" title="lost_and_found.state.item.Item"><span class="pre">Item</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.db.tables.ItemsTable.to_row" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.ItemsTable.update_query">
+<span class="sig-name descname"><span class="pre">update_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.ItemsTable.update_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">lost_and_found.db.tables.</span></span><span class="sig-name descname"><span class="pre">Table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cursor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Cursor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lost_and_found.db.tables.Table" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></p>
+<p>Base class representing a DB table for entities of type <cite>T</cite>.</p>
+<p>The class stores a cursor and maintains a mapping between SQLite primary
+keys and in-memory <a href="#id1"><span class="problematic" id="id2">`</span></a>EntityId`s so rows can be correlated with model
+entities.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.create_table">
+<span class="sig-name descname"><span class="pre">create_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.create_table" title="Link to this definition"></a></dt>
+<dd><p>Execute the table creation SQL returned by <cite>create_table_query</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.create_table_query">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create_table_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.create_table_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.delete" title="Link to this definition"></a></dt>
+<dd><p>Remove the row that corresponds to <cite>value</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.delete_query">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">delete_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.delete_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.from_row">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.from_row" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.id">
+<span class="sig-name descname"><span class="pre">id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.id" title="Link to this definition"></a></dt>
+<dd><p>Return the <cite>EntityId</cite> for a given primary key, creating one if
+none exists yet.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.insert" title="Link to this definition"></a></dt>
+<dd><p>Insert <cite>value</cite> as a new row and record its primary key mapping.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.insert_query">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">insert_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.insert_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.pk">
+<span class="sig-name descname"><span class="pre">pk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="lost_and_found.state.html#lost_and_found.state.entity.EntityId" title="lost_and_found.state.entity.EntityId"><span class="pre">EntityId</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.pk" title="Link to this definition"></a></dt>
+<dd><p>Return the primary key for an <cite>EntityId</cite> if known, otherwise
+<cite>None</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.select_all">
+<span class="sig-name descname"><span class="pre">select_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="lost_and_found.core.html#lost_and_found.core.immutable.ImmutableList" title="lost_and_found.core.immutable.ImmutableList"><span class="pre">ImmutableList</span></a></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.select_all" title="Link to this definition"></a></dt>
+<dd><p>Select all rows from the table and return them as an
+<cite>ImmutableList</cite> of entities.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.select_all_query">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">select_all_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.select_all_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.to_row">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">to_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.to_row" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.update" title="Link to this definition"></a></dt>
+<dd><p>Update an existing row corresponding to <cite>value</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lost_and_found.db.tables.Table.update_query">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">update_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lost_and_found.db.tables.Table.update_query" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-lost_and_found.db">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lost_and_found.db" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Mary Poppins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

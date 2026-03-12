@@ -1,0 +1,26 @@
+lost\_and\_found.ui.widgets.vlist.VerticalListView
+==================================================
+
+.. currentmodule:: lost_and_found.ui.widgets.vlist
+
+.. autoclass:: VerticalListView
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~VerticalListView.__init__
+      ~VerticalListView.draw
+   
+   
+
+   
+   
+   

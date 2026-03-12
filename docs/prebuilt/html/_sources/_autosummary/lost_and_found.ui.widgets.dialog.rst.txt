@@ -1,0 +1,32 @@
+lost\_and\_found.ui.widgets.dialog
+==================================
+
+.. automodule:: lost_and_found.ui.widgets.dialog
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                      
+      :template: custom-class-template.rst           
+   
+      DialogView
+      DialogViewModel
+   
+   
+
+   
+   
+   
+
+
+

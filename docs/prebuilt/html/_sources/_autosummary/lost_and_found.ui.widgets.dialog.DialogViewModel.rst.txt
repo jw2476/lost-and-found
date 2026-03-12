@@ -1,0 +1,28 @@
+lost\_and\_found.ui.widgets.dialog.DialogViewModel
+==================================================
+
+.. currentmodule:: lost_and_found.ui.widgets.dialog
+
+.. autoclass:: DialogViewModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DialogViewModel.__init__
+      ~DialogViewModel.apply
+      ~DialogViewModel.draw
+      ~DialogViewModel.validate
+   
+   
+
+   
+   
+   

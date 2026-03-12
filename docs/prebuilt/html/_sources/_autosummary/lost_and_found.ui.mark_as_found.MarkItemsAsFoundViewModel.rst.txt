@@ -1,0 +1,28 @@
+lost\_and\_found.ui.mark\_as\_found.MarkItemsAsFoundViewModel
+=============================================================
+
+.. currentmodule:: lost_and_found.ui.mark_as_found
+
+.. autoclass:: MarkItemsAsFoundViewModel
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MarkItemsAsFoundViewModel.__init__
+      ~MarkItemsAsFoundViewModel.apply
+      ~MarkItemsAsFoundViewModel.draw
+      ~MarkItemsAsFoundViewModel.validate
+   
+   
+
+   
+   
+   

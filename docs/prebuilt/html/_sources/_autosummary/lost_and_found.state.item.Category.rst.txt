@@ -1,0 +1,27 @@
+lost\_and\_found.state.item.Category
+====================================
+
+.. currentmodule:: lost_and_found.state.item
+
+.. autoclass:: Category
+   :members:                                   
+   :show-inheritance:                          
+   :inherited-members:                          
+
+   
+   .. automethod:: __init__
+
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Category.ELECTRONICS
+      ~Category.BOOKS
+      ~Category.CLOTHING
+   
+   
